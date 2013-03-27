@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Proyecto>
+    <DiagramaLogico id="e1460129-7634-409c-844a-d7eca8cb90ce">
+        <RepresentacionLogica id="3e14dcde-a71a-4296-bf51-85060e0640d3">
+            <Dimension alto="310" ancho="192"/>
+            <Posicion x="776" y="298"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="cd835ca9-944b-4800-ade3-56bb67b1b692">
+            <Dimension alto="70" ancho="180"/>
+            <Posicion x="1010" y="824"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="fc6f7bbe-bbab-411d-865b-4266140734f3">
+            <Dimension alto="70" ancho="180"/>
+            <Posicion x="440" y="864"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="67856c2b-8684-4511-8545-e286c07a70af">
+            <Dimension alto="290" ancho="174"/>
+            <Posicion x="716" y="703"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="001b0fb9-b858-4656-bec5-2ae94e164868">
+            <Dimension alto="170" ancho="174"/>
+            <Posicion x="179" y="810"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="796be953-6de8-4bb6-8fac-e903676b2167">
+            <Dimension alto="70" ancho="162"/>
+            <Posicion x="191" y="665"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="f9c7f6ce-7efc-4439-b2e6-f26cf31be78e">
+            <Dimension alto="70" ancho="162"/>
+            <Posicion x="426" y="667"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="647fca7e-fed4-411c-a729-de42cdb6fcc6">
+            <Dimension alto="70" ancho="96"/>
+            <Posicion x="131" y="175"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="7f68b99a-8d92-407c-a653-caa815ea93b3">
+            <Dimension alto="90" ancho="102"/>
+            <Posicion x="997" y="95"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="ab560789-2931-4762-adbf-01948f4b8dd1">
+            <Dimension alto="110" ancho="150"/>
+            <Posicion x="427" y="395"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="ff38782f-1746-493d-817b-b74094d3f774">
+            <Dimension alto="90" ancho="138"/>
+            <Posicion x="119" y="393"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="f43e6cab-2db5-4420-9786-38ebb863e1ef">
+            <Dimension alto="90" ancho="108"/>
+            <Posicion x="1362" y="458"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="ac5622c9-753a-486b-b270-7ed194b52594">
+            <Dimension alto="130" ancho="156"/>
+            <Posicion x="1132" y="433"/>
+        </RepresentacionLogica>
+        <RepresentacionLogica id="ff5ec433-9d2d-4721-a51d-c9f9c0b6a7cd">
+            <Dimension alto="90" ancho="126"/>
+            <Posicion x="1100" y="250"/>
+        </RepresentacionLogica>
+    </DiagramaLogico>
+</Proyecto>
