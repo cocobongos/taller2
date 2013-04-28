@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Proyecto>
+    <Modelo>Mensajería-comp.xml</Modelo>
+    <Representacion>Mensajería-rep.xml</Representacion>
+    <RepresentacionLogica>Mensajería-log-rep.xml</RepresentacionLogica>
+    <DiagramaLogico>Mensajería-logicos-comp.xml</DiagramaLogico>
+</Proyecto>
