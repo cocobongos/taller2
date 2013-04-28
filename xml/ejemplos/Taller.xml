@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Proyecto>
+    <Modelo>Taller-comp.xml</Modelo>
+    <Representacion>Taller-rep.xml</Representacion>
+    <RepresentacionLogica>Taller-log-rep.xml</RepresentacionLogica>
+    <DiagramaLogico>Taller-logicos-comp.xml</DiagramaLogico>
+</Proyecto>
