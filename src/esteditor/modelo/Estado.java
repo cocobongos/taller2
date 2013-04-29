@@ -4,6 +4,10 @@ import mereditor.modelo.Entidad;
 
 public class Estado extends Entidad {
 
+	public Estado()
+	{
+		super();
+	}
 
 
 }
