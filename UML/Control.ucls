@@ -1,95 +1,134 @@
-<class-diagram version="1.0.10" icons="true" automaticImage="PNG" always-add-relationships="false" 
-  generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true">  
-  <class id="1" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.JerarquiaControl" 
-    project="Taller_II_Viejo" file="/Taller_II_Viejo/src/mereditor/control/JerarquiaControl.java" binary="false">    
-    <position height="-1" width="-1" x="111" y="410"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.2" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true">  
+  <class id="1" language="java" name="mereditor.control.DiagramaLogicoControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/DiagramaLogicoControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="288" x="155" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="2" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.DiagramaControl" project="Taller_II_Viejo" 
-    file="/Taller_II_Viejo/src/mereditor/control/DiagramaControl.java" binary="false">    
-    <position height="-1" width="-1" x="771" y="406"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+  <class id="2" language="java" name="mereditor.control.DiagramaControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/DiagramaControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="248" x="483" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="3" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.AtributoControl" project="Taller_II_Viejo" 
-    file="/Taller_II_Viejo/src/mereditor/control/AtributoControl.java" binary="false">    
-    <position height="-1" width="-1" x="106" y="748"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+  <class id="3" language="java" name="mereditor.control.JerarquiaControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/JerarquiaControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="215" x="771" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <interface id="4" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.Control" project="Taller_II_Viejo" 
-    file="/Taller_II_Viejo/src/mereditor/control/Control.java" binary="false">    
-    <position height="-1" width="-1" x="410" y="374"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+  <class id="4" language="java" name="mereditor.control.TablaControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/TablaControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="333" width="317" x="1314" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="mereditor.control.DiagramaDERControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/DiagramaDERControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="248" x="1026" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="mereditor.control.RelacionControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/RelacionControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="240" x="1930" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="mereditor.control.AtributoControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/AtributoControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="219" x="1671" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="mereditor.control.RelacionLogicaControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/RelacionLogicaControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="193" x="2210" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true"/>      
+      <operations public="true" package="true" protected="true" private="true"/>    
+    </display>  
+  </class>  
+  <interface id="9" language="java" name="mereditor.control.Control" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/Control.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="158" x="1314" y="372"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </interface>  
-  <class id="5" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.RelacionControl" project="Taller_II_Viejo" 
-    file="/Taller_II_Viejo/src/mereditor/control/RelacionControl.java" binary="false">    
-    <position height="-1" width="-1" x="428" y="626"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
+  <class id="10" language="java" name="mereditor.control.EntidadControl" project="MEREditor" 
+    file="/MEREditor/src/mereditor/control/EntidadControl.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="216" x="2443" y="-1"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
       <attributes public="true" package="true" protected="true" private="true"/>      
       <operations public="true" package="true" protected="true" private="true"/>    
     </display>  
   </class>  
-  <class id="6" corner="BOTTOM_RIGHT" language="java" name="mereditor.control.EntidadControl" project="Taller_II_Viejo" 
-    file="/Taller_II_Viejo/src/mereditor/control/EntidadControl.java" binary="false">    
-    <position height="-1" width="-1" x="795" y="750"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true"/>      
-      <operations public="true" package="true" protected="true" private="true"/>    
-    </display>  
-  </class>  
-  <dependency id="7">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="8">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <realization id="9">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="4"/>  
+  <realization id="11">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
-  <dependency id="10">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </dependency>  
-  <dependency id="11">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
   <realization id="12">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
   <realization id="13">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
   <realization id="14">    
     <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="TARGET" refId="9"/>  
   </realization>  
-  <dependency id="15">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="6"/>  
-  </dependency>  
+  <realization id="15">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
   <realization id="16">    
     <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="17">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="18">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="9"/>  
+  </realization>  
+  <realization id="19">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="9"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-    visibility="true">    
+    accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true"/>    
     <operations public="true" package="true" protected="true" private="true"/>  
   </classifier-display>  
