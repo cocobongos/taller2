@@ -7,7 +7,6 @@ public class Estado extends Entidad {
 	public Estado()
 	{
 		super();
-	}
-
+	} 
 
 }
