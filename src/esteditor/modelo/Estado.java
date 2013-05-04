@@ -8,5 +8,7 @@ public class Estado extends Entidad {
 	{
 		super(); 
 	} 
+	
+	private void lalala(){}
 
 }
