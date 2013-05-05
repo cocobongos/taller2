@@ -11,4 +11,6 @@ public class Estado extends Entidad {
 	
 	private void lalala(){}
 
+	
+	private void lolo(){}
 }
