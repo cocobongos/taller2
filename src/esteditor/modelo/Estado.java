@@ -9,11 +9,6 @@ public class Estado extends Entidad {
 		super(); 
 	} 
 	
-	private void lalala(){}
 
-	
-	private void lolo(){}
-	private void holaMundo(){}
-    private void holaMundo2(){}
 
 }
