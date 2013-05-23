@@ -159,7 +159,7 @@ public class Tabla extends ComponenteNombre {
 				}
 				byte[] bytes=strCode.getBytes();
 				for(int i=0;i<bytes.length;i++){
-					code+=(int)bytes[i];
+					code+=bytes[i];
 				}
 				code*=strCode.length();
 		        return code;

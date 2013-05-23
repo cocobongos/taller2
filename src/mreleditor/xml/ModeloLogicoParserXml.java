@@ -99,6 +99,7 @@ public class ModeloLogicoParserXml extends ModeloParserXml {
 	 * @return
 	 * @throws Exception
 	 */
+	@Override
 	protected Xmlizable mapeoXmlizable(Element element) throws Exception {
 		switch (element.getNodeName()) {
 		case Constants.DIAGRAMA_LOGICO_TAG:

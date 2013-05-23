@@ -65,6 +65,7 @@ public abstract class AgregarComponenteDialog<T extends Componente> extends Dial
 	protected abstract Editor<?> getEditor();
 
 	protected SelectionAdapter nuevo = new SelectionAdapter() {
+		@Override
 		@SuppressWarnings("unchecked")
 		public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
 			Editor<?> editor = getEditor();
@@ -76,11 +77,12 @@ public abstract class AgregarComponenteDialog<T extends Componente> extends Dial
 	};
 
 	protected SelectionAdapter seleccionar = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(org.eclipse.swt.events.SelectionEvent e) {
 			SeleccionarComponenteDialog<T> dialog = new SeleccionarComponenteDialog<T>(
 					loadComponentes());
 			int result = dialog.open();
-			componente = (T)dialog.getComponente();
+			componente = dialog.getComponente();
 			setReturnCode(result);
 			close();
 		};

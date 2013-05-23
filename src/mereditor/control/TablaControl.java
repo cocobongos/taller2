@@ -4,17 +4,13 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 
-import mereditor.interfaz.swt.editores.EditorFactory;
 import mereditor.interfaz.swt.figuras.TablaFigure;
 import mereditor.interfaz.swt.figuras.Figura;
-import mereditor.representacion.PList;
 import mreleditor.modelo.Tabla;
-import mreleditor.modelo.Tabla.ClaveForanea;
 
 public class TablaControl extends Tabla implements Control<Tabla>,
 		MouseListener {

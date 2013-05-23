@@ -52,6 +52,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	 * hacer un click sobre el fondo.
 	 */
 	private MouseListener selection = new MouseListener.Stub() {
+		@Override
 		public void mousePressed(MouseEvent me) {
 			SeleccionControlador.deselectAll(null);
 		};
@@ -247,6 +248,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	/**
 	 * @see org.eclipse.draw2d.Figure#translateToParent(Translatable)
 	 */
+	@Override
 	public void translateToParent(Translatable t) {
 		t.performScale(zoom);
 		super.translateToParent(t);
@@ -255,6 +257,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	/**
 	 * @see org.eclipse.draw2d.Figure#translateFromParent(Translatable)
 	 */
+	@Override
 	public void translateFromParent(Translatable t) {
 		super.translateFromParent(t);
 		t.performScale(1 / zoom);
@@ -263,6 +266,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	/**
 	 * @see org.eclipse.draw2d.Figure#useLocalCoordinates()
 	 */
+	@Override
 	protected boolean useLocalCoordinates() {
 		return true;
 	}
@@ -270,6 +274,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	/**
 	 * @see org.eclipse.draw2d.Figure#getClientArea()
 	 */
+	@Override
 	public Rectangle getClientArea(Rectangle rect) {
 		super.getClientArea(rect);
 		rect.width /= zoom;
@@ -280,6 +285,7 @@ public class DiagramaFigura extends Figure implements FigureListener {
 	/**
 	 * @see org.eclipse.draw2d.Figure#paintClientArea(Graphics)
 	 */
+	@Override
 	protected void paintClientArea(Graphics graphics) {
 		if (getChildren().isEmpty())
 			return;

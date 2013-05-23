@@ -206,7 +206,7 @@ public class Diagrama extends ComponenteNombre {
 	 */
 	public void eliminar(Componente componente) {
 		if (Diagrama.class.isInstance(componente))
-			this.diagramas.remove((Diagrama) componente);
+			this.diagramas.remove(componente);
 		else
 			this.componentes.remove(componente);
 

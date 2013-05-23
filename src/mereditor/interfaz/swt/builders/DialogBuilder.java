@@ -49,6 +49,7 @@ public class DialogBuilder {
 		data.bottom = new FormAttachment(100, 0);
 		cancel.setLayoutData(data);
 		cancel.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				result.result = Resultado.CANCEL;
 				dialog.close();
@@ -79,6 +80,7 @@ public class DialogBuilder {
 		data.bottom = new FormAttachment(100, 0);
 		ok.setLayoutData(data);
 		ok.addSelectionListener(new SelectionAdapter() {
+			@Override
 			public void widgetSelected(SelectionEvent e) {
 				result.result = Resultado.OK;
 				dialog.close();

@@ -82,6 +82,7 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 		this.relaciones.remove(relacion);
 	}
 
+	@Override
 	public Collection<Atributo> getAtributos() {
 		return Collections.unmodifiableCollection(this.atributos);
 	}

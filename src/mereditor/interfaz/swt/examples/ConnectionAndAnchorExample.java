@@ -45,6 +45,7 @@ public class ConnectionAndAnchorExample extends AbstractExample {
 	/**
 	 * @see mereditor.interfaz.swt.examples.examples.AbstractExample#getContents()
 	 */
+	@Override
 	protected IFigure getContents() {
 		IFigure panel = new Figure();
 
@@ -130,6 +131,7 @@ public class ConnectionAndAnchorExample extends AbstractExample {
 	/**
 	 * @see mereditor.interfaz.swt.examples.examples.AbstractExample#hookShell()
 	 */
+	@Override
 	protected void hookShell() {
 		getFigureCanvas().setSize(820, 440);
 	}
@@ -142,20 +144,24 @@ public class ConnectionAndAnchorExample extends AbstractExample {
 
 		Point last;
 
+		@Override
 		public void mouseReleased(MouseEvent e) {
 		}
 
 		public void mouseClicked(MouseEvent e) {
 		}
 
+		@Override
 		public void mouseDoubleClicked(MouseEvent e) {
 		}
 
+		@Override
 		public void mousePressed(MouseEvent e) {
 			last = e.getLocation();
 			e.consume();
 		}
 
+		@Override
 		public void mouseDragged(MouseEvent e) {
 			Point p = e.getLocation();
 			Dimension delta = p.getDifference(last);

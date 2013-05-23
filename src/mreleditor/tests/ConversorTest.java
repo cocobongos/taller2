@@ -15,7 +15,6 @@ import mereditor.modelo.Jerarquia;
 import mereditor.modelo.Jerarquia.TipoJerarquia;
 import mereditor.modelo.Relacion.TipoRelacion;
 import mereditor.modelo.Relacion;
-import mereditor.modelo.base.Componente;
 import mreleditor.conversor.ConversorDERaLogico;
 import mreleditor.modelo.DiagramaLogico;
 import mreleditor.modelo.Tabla;

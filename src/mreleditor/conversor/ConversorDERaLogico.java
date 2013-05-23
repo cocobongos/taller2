@@ -88,7 +88,7 @@ public class ConversorDERaLogico {
 		for (Componente componente : der.getComponentes()) {
 			if (componente.es(Relacion.class)) {
 
-				if (!relacionesProcesadas.contains((Relacion) componente)) {
+				if (!relacionesProcesadas.contains(componente)) {
 					Tabla tabla = convertirRelacion((Relacion) componente);
 					diagramaLogico.agregar(tabla);
 				}

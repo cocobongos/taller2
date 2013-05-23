@@ -72,10 +72,10 @@ public abstract class Tabla<T> extends TableViewer {
 
 		// Establecer el titulo de las columnas, los modificadores y los
 		// editores.
-		this.setColumnProperties((String[]) columnas
+		this.setColumnProperties(columnas
 				.toArray(new String[columnas.size()]));
 		this.setCellModifier(this.cellModifier);
-		this.setCellEditors((CellEditor[]) editoresCeldas
+		this.setCellEditors(editoresCeldas
 				.toArray(new CellEditor[editoresCeldas.size()]));
 
 		this.addSelectionChangedListener(this.seleccion);
@@ -147,6 +147,7 @@ public abstract class Tabla<T> extends TableViewer {
 	}
 
 	private final ISelectionChangedListener seleccion = new ISelectionChangedListener() {
+		@Override
 		public void selectionChanged(SelectionChangedEvent event) {
 			selection = (IStructuredSelection) getSelection();
 		}
@@ -156,6 +157,7 @@ public abstract class Tabla<T> extends TableViewer {
 	 * Agregar elemento existente.
 	 */
 	public final SelectionListener agregar = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent event) {
 			T elemento = agregarElemento();
 			if (elemento != null) {
@@ -169,6 +171,7 @@ public abstract class Tabla<T> extends TableViewer {
 	 * Agregar un nuevo elemento.
 	 */
 	public final SelectionListener nuevo = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent event) {
 			T elemento = nuevoElemento();
 			if (elemento != null) {
@@ -182,6 +185,7 @@ public abstract class Tabla<T> extends TableViewer {
 	 * Eliminar elemento
 	 */
 	public final SelectionListener eliminar = new SelectionAdapter() {
+		@Override
 		@SuppressWarnings("unchecked")
 		public void widgetSelected(SelectionEvent event) {
 			if (selection != null) {
@@ -242,15 +246,18 @@ public abstract class Tabla<T> extends TableViewer {
 	};
 
 	private ICellModifier cellModifier = new ICellModifier() {
+		@Override
 		public boolean canModify(Object element, String property) {
 			return !readOnly;
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public Object getValue(Object element, String property) {
 			return getValorCelda((T) element, property);
 		}
 
+		@Override
 		@SuppressWarnings("unchecked")
 		public void modify(Object element, String property, Object value) {
 			if (element instanceof Item)

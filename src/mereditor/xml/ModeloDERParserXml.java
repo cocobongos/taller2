@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mereditor.control.AtributoControl;
-import mereditor.control.DiagramaDERControl;
 import mereditor.control.EntidadControl;
 import mereditor.control.JerarquiaControl;
 import mereditor.control.RelacionControl;
@@ -43,6 +42,7 @@ public class ModeloDERParserXml extends ModeloParserXml {
 	 * @throws DOMException
 	 * @throws Exception
 	 */
+	@Override
 	public Document generarXml() throws DOMException, Exception {
 		Document doc = this.docBuilder.newDocument();
 		this.root = doc.createElement(Constants.PROYECTO_TAG);
@@ -72,7 +72,7 @@ public class ModeloDERParserXml extends ModeloParserXml {
 		Element diagramaXml = XmlHelper.querySingle(this.root, Constants.DIAGRAMA_QUERY);
 		DiagramaDER diagrama = (DiagramaDER) this.resolver(this.obtenerId(diagramaXml));
 		// Obtener la validacion principal
-		Validacion validacion = (Validacion) this.obtenerValidacion(this.root);
+		Validacion validacion = this.obtenerValidacion(this.root);
 
 		this.proyecto.setDiagramaRaiz(diagrama);
 		this.proyecto.setValidacion(validacion);
@@ -356,6 +356,7 @@ public class ModeloDERParserXml extends ModeloParserXml {
 	 * @return
 	 * @throws Exception
 	 */
+	@Override
 	protected Xmlizable mapeoXmlizable(Element element) throws Exception {
 		switch (element.getNodeName()) {
 		case Constants.ENTIDAD_TAG:

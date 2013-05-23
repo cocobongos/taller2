@@ -4,7 +4,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 import mereditor.control.Control;
-import mereditor.control.DiagramaDERControl;
 import mereditor.interfaz.swt.listeners.SeleccionControlador;
 import mereditor.modelo.Proyecto;
 
@@ -41,6 +40,7 @@ public abstract class DiagramaFigure extends Figure implements FigureListener{
 	 * hacer un click sobre el fondo.
 	 */
 	protected MouseListener selection = new MouseListener.Stub() {
+		@Override
 		public void mousePressed(MouseEvent me) {
 			SeleccionControlador.deselectAll(null);
 		};
@@ -55,9 +55,9 @@ public abstract class DiagramaFigure extends Figure implements FigureListener{
 	 */
 	protected static void initZoomOptions() {
 		float zoom = 0;
-		while (zoom < DiagramaDERFigura.MAX_ZOOM) {
-			zoom += DiagramaDERFigura.DELTA_ZOOM;
-			if (zoom >= DiagramaDERFigura.MIN_ZOOM) {
+		while (zoom < DiagramaFigure.MAX_ZOOM) {
+			zoom += DiagramaFigure.DELTA_ZOOM;
+			if (zoom >= DiagramaFigure.MIN_ZOOM) {
 				String key = Integer.toString((int) (zoom * 100));
 				zoomOptions.put(key + "%", zoom);
 			}

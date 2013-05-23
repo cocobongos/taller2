@@ -112,6 +112,7 @@ public abstract class Componente implements Comparable<Componente>, Validable {
 	/**
 	 * Carga las validaciones para este componente.
 	 */
+	@Override
 	public void addValidaciones() {
 	}
 
@@ -122,6 +123,7 @@ public abstract class Componente implements Comparable<Componente>, Validable {
 	 * @return Devuelve <code>null</code> si es válido o las observaciones
 	 *         correspondientes si no lo es.
 	 */
+	@Override
 	public Observacion validar() {
 		Observacion observaciones = new Observacion(this);
 

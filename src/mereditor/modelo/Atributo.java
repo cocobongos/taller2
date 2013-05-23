@@ -55,28 +55,34 @@ public class Atributo extends ComponenteNombre implements ComponenteAtributos,
 		this.cardinalidadMaxima = cardMax;
 	}
 
+	@Override
 	public TipoAtributo getTipo() {
 		return this.tipo;
 	}
 
+	@Override
 	public void setTipo(TipoAtributo tipo) {
 		this.tipo = tipo;
 	}
 
+	@Override
 	public String getCardinalidadMaxima() {
 		return this.cardinalidadMaxima;
 	}
 
+	@Override
 	public void setCardinalidadMaxima(String cardinalidad) {
 		if(cardinalidad.isEmpty())
 			return;
 		this.cardinalidadMaxima = cardinalidad;
 	}
 
+	@Override
 	public String getCardinalidadMinima() {
 		return this.cardinalidadMinima;
 	}
 
+	@Override
 	public void setCardinalidadMinima(String cardinalidad) {
 		this.cardinalidadMinima = cardinalidad;
 	}
@@ -106,6 +112,7 @@ public class Atributo extends ComponenteNombre implements ComponenteAtributos,
 		this.atributos.remove(atributo);
 	}
 
+	@Override
 	public Collection<Atributo> getAtributos() {
 		return Collections.unmodifiableCollection(this.atributos);
 	}

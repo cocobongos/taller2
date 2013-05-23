@@ -3,7 +3,6 @@ package mereditor.interfaz.swt.figuras;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import mereditor.control.DiagramaControl;
 import mereditor.control.DiagramaLogicoControl;
 import mereditor.interfaz.swt.listeners.AreaSeleccionControlador;
 import mereditor.interfaz.swt.listeners.ArrastreControlador;
@@ -42,6 +41,7 @@ public class DiagramaLogicoFigura extends Figure implements FigureListener {
 	private float zoom = 1;
 	
 	private MouseListener selection = new MouseListener.Stub() {
+		@Override
 		public void mousePressed(MouseEvent me) {
 			SeleccionControlador.deselectAll(null);
 		};
@@ -203,20 +203,24 @@ public class DiagramaLogicoFigura extends Figure implements FigureListener {
 		return zoom + "%";
 	}
 	
+	@Override
 	public void translateToParent(Translatable t) {
 		t.performScale(zoom);
 		super.translateToParent(t);
 	}
 	
+	@Override
 	public void translateFromParent(Translatable t) {
 		super.translateFromParent(t);
 		t.performScale(1 / zoom);
 	}
 
+	@Override
 	protected boolean useLocalCoordinates() {
 		return true;
 	}
 
+	@Override
 	public Rectangle getClientArea(Rectangle rect) {
 		super.getClientArea(rect);
 		rect.width /= zoom;
@@ -224,6 +228,7 @@ public class DiagramaLogicoFigura extends Figure implements FigureListener {
 		return rect;
 	}
 
+	@Override
 	protected void paintClientArea(Graphics graphics) {
 		if (getChildren().isEmpty())
 			return;

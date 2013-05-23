@@ -43,6 +43,7 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 	 * @throws DOMException
 	 * @throws Exception
 	 */
+	@Override
 	public Document generarXml() throws DOMException, Exception {
 		Document doc = this.docBuilder.newDocument();
 		this.root = doc.createElement(Constants.PROYECTO_TAG);
@@ -77,7 +78,7 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 		Diagrama diagrama = (Diagrama) this.resolver(this
 				.obtenerId(diagramaXml));
 		// Obtener la validacion principal
-		Validacion validacion = (Validacion) this.obtenerValidacion(this.root);
+		Validacion validacion = this.obtenerValidacion(this.root);
 
 		this.proyecto.setDiagramaRaiz(diagrama);
 		this.proyecto.setValidacion(validacion);
@@ -379,6 +380,7 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 	 * @return
 	 * @throws Exception
 	 */
+	@Override
 	protected Xmlizable mapeoXmlizable(Element element) throws Exception {
 		switch (element.getNodeName()) {
 		case Constants.ENTIDAD_TAG:

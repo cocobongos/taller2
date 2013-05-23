@@ -1,6 +1,5 @@
 package esteditor.modelo;
 
-import mereditor.modelo.Diagrama;
 import mereditor.modelo.DiagramaDER;
 import mereditor.modelo.Proyecto;
 

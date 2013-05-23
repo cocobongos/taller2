@@ -4,14 +4,9 @@
 package mreleditor.modelo;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map;
-
 import mereditor.modelo.Diagrama;
 import mereditor.modelo.Proyecto;
-import mereditor.modelo.base.Componente;
 import mereditor.modelo.base.ComponenteNombre;
 
 /**

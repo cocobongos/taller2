@@ -8,7 +8,6 @@ import java.util.Set;
 import mereditor.modelo.Validacion.EstadoValidacion;
 import mereditor.modelo.base.Componente;
 import mereditor.modelo.base.ComponenteAtributos;
-import mereditor.modelo.base.ComponenteNombre;
 import mereditor.modelo.validacion.Observacion;
 import mereditor.modelo.validacion.ValidarAcoplamiento;
 import mereditor.modelo.validacion.ValidarClaridadAtributos;
@@ -56,6 +55,7 @@ public class DiagramaDER extends Diagrama {
 	 *            Indica si se deben incluir las entidades de los ancestros.
 	 * @return
 	 */
+	@Override
 	public Set<Entidad> getEntidades(boolean incluirAncestros) {
 		Set<Entidad> entidades = Componente.filtrarComponentes(Entidad.class, this.componentes);
 
@@ -74,6 +74,7 @@ public class DiagramaDER extends Diagrama {
 	 * @param incluirAncestros
 	 * @return
 	 */
+	@Override
 	public Collection<Atributo> getAtributos(boolean incluirAncestros) {
 		Set<ComponenteAtributos> componentes = Componente.filtrarComponentes(
 				ComponenteAtributos.class, this.componentes);
@@ -97,6 +98,7 @@ public class DiagramaDER extends Diagrama {
 	 * @param incluirAncestros
 	 * @return
 	 */
+	@Override
 	public Set<Relacion> getRelaciones(boolean incluirAncestros) {
 		Set<Relacion> relaciones = Componente.filtrarComponentes(Relacion.class, this.componentes);
 
@@ -114,6 +116,7 @@ public class DiagramaDER extends Diagrama {
 	 * @param incluirAncestros
 	 * @return
 	 */
+	@Override
 	public Set<Jerarquia> getJerarquias(boolean incluirAncestros) {
 		Set<Jerarquia> jerarquias = Componente
 				.filtrarComponentes(Jerarquia.class, this.componentes);
@@ -131,6 +134,7 @@ public class DiagramaDER extends Diagrama {
 	 * 
 	 * @return
 	 */
+	@Override
 	public Validacion getValidacion() {
 		return this.validacion;
 	}

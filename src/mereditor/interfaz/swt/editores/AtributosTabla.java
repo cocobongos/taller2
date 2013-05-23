@@ -44,7 +44,7 @@ public class AtributosTabla extends Tabla<Atributo> {
 	@Override
 	protected String getTextoColumna(Atributo element, int columnIndex) {
 		String nombreColumna = this.columnas.get(columnIndex);
-		if(nombreColumna.equals(EntidadEditor.TIPO))
+		if(nombreColumna.equals(Editor.TIPO))
 			return element.getTipo().name();
 		else
 			return (String) this.getValorCelda(element, this.columnas.get(columnIndex));

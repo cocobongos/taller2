@@ -120,6 +120,7 @@ class RepresentacionParserXml extends ParserXML {
 	 * Generar el XML de rerpesentacion.
 	 * @return
 	 */
+	@Override
 	public Document generarXml() {
 		Document doc = this.docBuilder.newDocument();
 		this.root = doc.createElement(Constants.PROYECTO_TAG);

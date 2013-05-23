@@ -2,13 +2,11 @@ package mereditor.interfaz.swt.figuras;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.PolygonDecoration;
 import org.eclipse.draw2d.PolylineConnection;

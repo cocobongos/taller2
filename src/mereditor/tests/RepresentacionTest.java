@@ -11,6 +11,7 @@ public class RepresentacionTest extends TestCase {
 	private static final String PATH_TEST = "xml/test/test.xml";
 	private SaverLoaderXML parser;
 	
+	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
 		this.parser = new SaverLoaderXML(PATH_TEST);

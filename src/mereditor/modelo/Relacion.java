@@ -62,10 +62,12 @@ public class Relacion extends ComponenteNombre implements ComponenteAtributos, C
 	/*
 	 * Getter y setters
 	 */
+	@Override
 	public TipoRelacion getTipo() {
 		return tipo;
 	}
 
+	@Override
 	public void setTipo(TipoRelacion tipo) {
 		this.tipo = tipo;
 	}
@@ -83,6 +85,7 @@ public class Relacion extends ComponenteNombre implements ComponenteAtributos, C
 		return entidades;
 	}
 
+	@Override
 	public Set<Atributo> getAtributos() {
 		return Collections.unmodifiableSet(atributos);
 	}
@@ -173,18 +176,22 @@ public class Relacion extends ComponenteNombre implements ComponenteAtributos, C
 			this.rol = rol;
 		}
 
+		@Override
 		public String getCardinalidadMinima() {
 			return cardinalidadMinima;
 		}
 
+		@Override
 		public String getCardinalidadMaxima() {
 			return cardinalidadMaxima;
 		}
 
+		@Override
 		public void setCardinalidadMinima(String cardinalidadMinima) {
 			this.cardinalidadMinima = cardinalidadMinima;
 		}
 
+		@Override
 		public void setCardinalidadMaxima(String cardinalidadMaxima) {
 			this.cardinalidadMaxima = cardinalidadMaxima;
 		}
@@ -210,6 +217,7 @@ public class Relacion extends ComponenteNombre implements ComponenteAtributos, C
 			this.validaciones.add(new ValidarCardinalidadCompleta());
 		}
 
+		@Override
 		public Observacion validar() {
 			Observacion observacion = new Observacion(this);
 			

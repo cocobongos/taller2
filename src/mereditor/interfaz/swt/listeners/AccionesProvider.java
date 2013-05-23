@@ -52,18 +52,21 @@ public class AccionesProvider {
 	};
 
 	public static final SelectionListener imprimir = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().imprimir();
 		};
 	};
 
 	public static final SelectionListener exportar = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().exportar();
 		};
 	};
 
 	public static final SelectionListener zoomIn = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			ToolItem item = (ToolItem) e.getSource();
 			principal().zoomIn((Combo) item.getData());
@@ -71,6 +74,7 @@ public class AccionesProvider {
 	};
 
 	public static final SelectionListener zoomOut = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			ToolItem item = (ToolItem) e.getSource();
 			principal().zoomOut((Combo) item.getData());
@@ -78,6 +82,7 @@ public class AccionesProvider {
 	};
 
 	public static SelectionListener zoom = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			Combo combo = (Combo) e.getSource();
 			principal().zoom(combo.getText());
@@ -98,6 +103,7 @@ public class AccionesProvider {
 	 * Agregar una Relacion al diagrama actual.
 	 */
 	public static final SelectionListener agregarRelacion = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().agregarRelacion();
 		};
@@ -107,6 +113,7 @@ public class AccionesProvider {
 	 * Agregar una Jerarquia al diagrama actual.
 	 */
 	public static final SelectionListener agregarJerarquia = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().agregarJerarquia();
 		};
@@ -116,6 +123,7 @@ public class AccionesProvider {
 	 * Validar el diagrama actual.
 	 */
 	public static final SelectionListener validar = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().validar();
 		};
@@ -125,6 +133,7 @@ public class AccionesProvider {
 	 * Validar el proyecto actual.
 	 */
 	public static final SelectionListener validarProyecto = new SelectionAdapter() {
+		@Override
 		public void widgetSelected(SelectionEvent e) {
 			principal().validarProyecto();
 		};

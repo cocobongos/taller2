@@ -10,9 +10,7 @@ import mereditor.control.DiagramaLogicoControl;
 import mereditor.control.TablaControl;
 import mereditor.interfaz.swt.figuras.Figura;
 import mereditor.interfaz.swt.figuras.TablaFigure;
-import mereditor.modelo.base.Componente;
 import mereditor.representacion.PList;
-import mreleditor.modelo.DiagramaLogico;
 import mreleditor.modelo.Tabla;
 
 public class ConversorDERRepresentacion {

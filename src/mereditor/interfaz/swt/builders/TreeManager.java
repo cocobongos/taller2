@@ -217,6 +217,7 @@ public class TreeManager {
 	}
 	
 	private CTabFolder2Listener minimizar = new CTabFolder2Adapter() {
+		@Override
 		public void minimize(CTabFolderEvent event) {
 			Principal.getInstance().mostrarArbol(false);
 		};
