@@ -5,6 +5,7 @@ import java.util.Map;
 
 import mereditor.interfaz.swt.editores.EditorFactory;
 import mereditor.interfaz.swt.figuras.EntidadFigure;
+import mereditor.interfaz.swt.figuras.EstadoFigure;
 import mereditor.interfaz.swt.figuras.Figura;
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Entidad;
@@ -13,15 +14,17 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseListener;
 
-public class EntidadControl extends Entidad implements Control<Entidad>, MouseListener {
-	protected Map<String, EntidadFigure> figures = new HashMap<>();
+import esteditor.modelo.Estado;
+
+public class EstadoControl extends Estado implements Control<Estado>, MouseListener {
+	protected Map<String, EstadoFigure> figures = new HashMap<>();
 
 	@Override
-	public Figura<Entidad> getFigura(String idDiagrama) 
+	public Figura<Estado> getFigura(String idDiagrama) 
 	{
 		if (!this.figures.containsKey(idDiagrama)) 
 		{
-			EntidadFigure figura = new EntidadFigure(this);
+			EstadoFigure figura = new EstadoFigure(this);
 			this.figures.put(idDiagrama, figura);
 			
 			this.setPosicionInicial(figura);
@@ -42,7 +45,7 @@ public class EntidadControl extends Entidad implements Control<Entidad>, MouseLi
 
 	@Override
 	public void dibujar(Figure contenedor, String idDiagrama) {
-		EntidadFigure figuraEntidad = (EntidadFigure) this.getFigura(idDiagrama);
+		EstadoFigure figuraEntidad = (EstadoFigure) this.getFigura(idDiagrama);
 		contenedor.add(figuraEntidad);
 
 		/*
@@ -57,13 +60,13 @@ public class EntidadControl extends Entidad implements Control<Entidad>, MouseLi
 		}
 	}
 
-	public Map<String, EntidadFigure> getFiguras() {
+	public Map<String, EstadoFigure> getFiguras() {
 		return this.figures;
 	}
 	
 	@Override
 	public String getNombreIcono() {
-		return "entidad.png";
+		return "estado.png";
 	}
 
 	@Override

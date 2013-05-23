@@ -7,6 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import esteditor.modelo.Estado;
+
 import mereditor.control.DiagramaControl;
 import mereditor.modelo.Validacion.EstadoValidacion;
 import mereditor.modelo.base.Componente;
@@ -389,5 +391,18 @@ public class Proyecto extends ComponenteNombre implements ProyectoProxy {
 			if (DiagramaLogicoControl.class.isInstance(diagrama))
 				this.diagramaLogico = (DiagramaLogicoControl) diagrama;
 		}
+	}
+
+	
+	//cocos
+	@Override
+	public Set<Estado> getEstadosDisponibles() {
+		// TODO Auto-generated method stub
+		return this.diagramaActual.getEstados(true);
+	}
+
+	@Override
+	public Set<Estado> getEstadosDiagrama() {
+		return this.diagramaActual.getEstados(false);
 	}
 }

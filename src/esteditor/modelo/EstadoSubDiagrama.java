@@ -4,7 +4,7 @@ import mereditor.modelo.base.Componente;
 
 /***
  * 
- * @author cocobongos
+ * @author cocobongos 
  *
  */
 public class EstadoSubDiagrama extends Estado {

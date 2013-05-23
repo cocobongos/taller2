@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.eclipse.draw2d.Graphics;
 
+import esteditor.modelo.Estado;
+
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Entidad;
 import mereditor.modelo.Jerarquia;
@@ -21,12 +23,16 @@ public class EstilosFiguras {
 	private static final PList negro = new PList().set("r", 0).set("g", 0).set("b", 0);
 	private static final PList blanco = new PList().set("r", 255).set("g", 255).set("b", 255);
 	private static final PList crema = new PList().set("r", 255).set("g", 255).set("b", 206);
+	private static final PList coco = new PList().set("r", 193).set("g", 176).set("b", 146);
 
 	static {
 		estilos.put(Entidad.class, new HashMap<Object, PList>());
 		estilos.put(Relacion.class, new HashMap<Object, PList>());
 		estilos.put(Atributo.class, new HashMap<Object, PList>());
 		estilos.put(Jerarquia.class, new HashMap<Object, PList>());
+		
+		//cocos
+		estilos.put(Estado.class, new HashMap<Object, PList>());
 		
 		estilos.get(Entidad.class).put(TipoEntidad.MAESTRA_COSA, new PList());
 		estilos.get(Entidad.class).put(TipoEntidad.MAESTRA_DOMINIO, new PList());
@@ -111,6 +117,28 @@ public class EstilosFiguras {
 
 		rep = estilos.get(Jerarquia.class).get(TipoJerarquia.TOTAL_SUPERPUESTA);
 		rep.set("ColorFondo", crema);
+		rep.set("ColorLinea", negro);
+		
+		
+		
+		/**
+		 * COCOS
+		 * Estado
+		 */
+		rep = estilos.get(Entidad.class).get(TipoEntidad.MAESTRA_COSA);
+		rep.set("ColorFondo", coco);
+		rep.set("ColorLinea", negro);
+
+		rep = estilos.get(Entidad.class).get(TipoEntidad.MAESTRA_DOMINIO);
+		rep.set("ColorFondo", coco);
+		rep.set("ColorLinea", negro);
+
+		rep = estilos.get(Entidad.class).get(TipoEntidad.TRANSACCIONAL_HISTORICA);
+		rep.set("ColorFondo", coco);
+		rep.set("ColorLinea", negro);
+
+		rep = estilos.get(Entidad.class).get(TipoEntidad.TRANSACCIONAL_PROGRAMADA);
+		rep.set("ColorFondo", coco);
 		rep.set("ColorLinea", negro);
 	}
 	

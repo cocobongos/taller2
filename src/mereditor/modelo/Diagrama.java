@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import esteditor.modelo.Estado;
+
 import mereditor.modelo.Validacion.EstadoValidacion;
 import mereditor.modelo.base.Componente;
 import mereditor.modelo.base.ComponenteAtributos;
@@ -61,6 +63,25 @@ public class Diagrama extends ComponenteNombre {
 		}
 
 		return entidades;
+	}
+	
+	
+	
+	/**
+	 * Obtiene las estados de este diagrama y sus ancestros.
+	 * @author coco 
+	 * @param incluirAncestros
+	 *            Indica si se deben incluir las entidades de los ancestros.
+	 * @return
+	 */
+	public Set<Estado> getEstados(boolean incluirAncestros) {
+		Set<Estado> estados = Componente.filtrarComponentes(Estado.class, this.componentes);
+
+		if (incluirAncestros && this.getPadre() != null) {
+			Diagrama diagrama = (Diagrama) this.getPadre();
+			estados.addAll(diagrama.getEstados(incluirAncestros));
+		}
+		return estados;
 	}
 
 	/**

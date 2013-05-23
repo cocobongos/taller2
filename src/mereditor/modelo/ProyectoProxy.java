@@ -3,6 +3,8 @@ package mereditor.modelo;
 import java.util.Collection;
 import java.util.Set;
 
+import esteditor.modelo.Estado;
+
 public interface ProyectoProxy {
 	/**
 	 * Devuelve todas la entidades del diagrama actual y de sus ancestros.
@@ -53,4 +55,22 @@ public interface ProyectoProxy {
 	 * @return
 	 */
 	public Set<Jerarquia> getJerarquiasDiagrama();
+	
+	
+	/**
+	 * Devuelve todas la estados del diagrama actual y de sus ancestros.
+	 * @author cocos
+	 * @return
+	 */
+	public Set<Estado> getEstadosDisponibles();
+	
+	
+	/**
+	 * Devuelve las entidades del diagrama actual.
+	 * @author cocos
+	 * @return
+	 */
+	public Set<Estado> getEstadosDiagrama();
+	
+	
 }

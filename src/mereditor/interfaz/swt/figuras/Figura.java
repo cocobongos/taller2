@@ -23,6 +23,7 @@ import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.MouseListener;
 import org.eclipse.draw2d.PolylineConnection;
@@ -82,6 +83,34 @@ public abstract class Figura<T extends Componente> extends Figure {
 		this.init();
 	}
 
+	
+
+	public Figura(T componente, boolean isEstado ) {
+		this.componente = componente;
+
+		this.setFont(this.font);
+		this.setLayoutManager(new BorderLayout());
+
+		Graphics g = null;
+		g.drawOval(2, 2, 2, 2);
+		
+		this.paint(g);
+		
+		// Agregar controlador para arrastre
+		new ArrastreSeleccionControlador(this);
+		// Agregar controlador para el movivimento de las figuras loqueadas
+		new MovimientoControlador(this);
+
+		new SeleccionControlador(this);
+
+		// Agregar este controlador como listener para mouse clicks
+		this.addMouseListener((MouseListener) this.componente);
+		this.addFigureListener(Principal.getInstance());
+
+		this.initEstado();
+	}
+	
+	
 	/**
 	 * Establece los estilos por default para la figura y agrega un label con el
 	 * nombre del componente
@@ -97,6 +126,26 @@ public abstract class Figura<T extends Componente> extends Figure {
 		this.lblName.setFont(this.font);
 		this.add(lblName, BorderLayout.CENTER);
 	}
+	
+	
+	/**
+	 * COCOS TODO hacer un circulo
+	 * Establece los estilos por default para la figura y agrega un label con el
+	 * nombre del componente
+	 */
+	protected void initEstado() {
+		this.setBorder(new LineBorder(this.lineColor, this.lineWidth, this.lineStyle));
+		this.setBackgroundColor(this.backColor);
+
+		this.setOpaque(true);
+		this.setSize(Figura.defaultSize);
+
+		this.lblName = new Label();
+		this.lblName.setFont(this.font);
+		this.add(lblName, BorderLayout.CENTER);
+	}
+	
+	
 
 	/**
 	 * Devuelve la conexión entre esta figura y la figura del componente del id

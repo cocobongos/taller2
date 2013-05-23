@@ -89,6 +89,17 @@ public class AccionesProvider {
 		};
 	};
 
+	
+	/**
+	 * Agregar un estado al diagrama actual.
+	 */
+	public static SelectionListener agregarEstado = new SelectionAdapter() {
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			principal().agregarEstado();
+		}
+	};
+
 	/**
 	 * Agregar una entidad al diagrama actual.
 	 */

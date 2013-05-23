@@ -25,6 +25,7 @@ import mereditor.interfaz.swt.builders.MenuBuilder;
 import mereditor.interfaz.swt.builders.ToolBarBuilder;
 import mereditor.interfaz.swt.builders.TreeManager;
 import mereditor.interfaz.swt.dialogs.AgregarEntidadDialog;
+import mereditor.interfaz.swt.dialogs.AgregarEstadoDialog;
 import mereditor.interfaz.swt.dialogs.AgregarJerarquiaDialog;
 import mereditor.interfaz.swt.dialogs.AgregarRelacionDialog;
 import mereditor.interfaz.swt.figuras.DiagramaFigura;
@@ -841,6 +842,25 @@ public class Principal extends Observable implements FigureListener {
 
 		TreeManager.agregarADiagramaActual(diaControl);
 		this.modificado(true);
+	}
+
+	
+	
+	///for cocos
+	
+	/**
+	 * Abre el dialogo para agregar un Estado al diagrama actual.
+	 */
+	public void agregarEstado() {
+		AgregarEstadoDialog dialog = new AgregarEstadoDialog();
+		if (dialog.open() == Window.OK) 
+		{
+			this.proyecto.agregar(dialog.getComponente());
+			this.actualizarVista();
+			TreeManager.agregarADiagramaActual(dialog.getComponente());
+			this.modificado(true);
+		
+		}
 	}
 
 }

@@ -94,7 +94,7 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 	public Set<Relacion> getRelaciones() {
 		return Collections.unmodifiableSet(this.relaciones);
 	}
-	
+
 	@Override
 	public Collection<Componente> getComponentes() {
 		return new ArrayList<Componente>(this.atributos);
@@ -123,60 +123,70 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 	public void setTipo(TipoEntidad tipo) {
 		this.tipo = tipo;
 	}
-	public boolean esGenerica(){
-		for(Componente diagramaPadre: this.getAllPadres()){
-			for(Jerarquia jerarquia: ((Diagrama)diagramaPadre).getJerarquias(true)){
-				if(jerarquia.getGenerica().equals(this))
+
+	public boolean esGenerica() {
+		for (Componente diagramaPadre : this.getAllPadres()) {
+			for (Jerarquia jerarquia : ((Diagrama) diagramaPadre)
+					.getJerarquias(true)) {
+				if (jerarquia.getGenerica().equals(this))
 					return true;
 			}
 		}
 		return false;
 	}
-	public boolean esDerivada(){
-		for(Componente diagramaPadre: this.getAllPadres()){
-			for(Jerarquia jerarquia: ((Diagrama)diagramaPadre).getJerarquias(true)){
-				for(Entidad derivada: jerarquia.getDerivadas()){
-					if(derivada.equals(this))
+
+	public boolean esDerivada() {
+		for (Componente diagramaPadre : this.getAllPadres()) {
+			for (Jerarquia jerarquia : ((Diagrama) diagramaPadre)
+					.getJerarquias(true)) {
+				for (Entidad derivada : jerarquia.getDerivadas()) {
+					if (derivada.equals(this))
 						return true;
 				}
 			}
 		}
 		return false;
 	}
-	public Set<Entidad> getDerivadas(){
 
-		for(Componente diagramaPadre: this.getAllPadres()){
-			for(Jerarquia jerarquia: ((Diagrama)diagramaPadre).getJerarquias(true)){
-				if(jerarquia.getGenerica().equals(this))
+	public Set<Entidad> getDerivadas() {
+
+		for (Componente diagramaPadre : this.getAllPadres()) {
+			for (Jerarquia jerarquia : ((Diagrama) diagramaPadre)
+					.getJerarquias(true)) {
+				if (jerarquia.getGenerica().equals(this))
 					return jerarquia.getDerivadas();
 			}
 		}
 		return new HashSet<Entidad>();
 	}
-	public Entidad getGenerica(){
 
-		for(Componente diagramaPadre: this.getAllPadres()){
-			for(Jerarquia jerarquia: ((Diagrama)diagramaPadre).getJerarquias(true)){
-				for(Entidad derivada: jerarquia.getDerivadas()){
-					if(derivada.equals(this))
+	public Entidad getGenerica() {
+
+		for (Componente diagramaPadre : this.getAllPadres()) {
+			for (Jerarquia jerarquia : ((Diagrama) diagramaPadre)
+					.getJerarquias(true)) {
+				for (Entidad derivada : jerarquia.getDerivadas()) {
+					if (derivada.equals(this))
 						return jerarquia.getGenerica();
-					
+
 				}
 			}
 		}
 		return null;
 	}
-	public boolean esJerarquica(){
-		return esGenerica()||esDerivada();
+
+	public boolean esJerarquica() {
+		return esGenerica() || esDerivada();
 	}
-	public int getNivel(){
-		int nivel=0;
-		if(!esGenerica())
+
+	public int getNivel() {
+		int nivel = 0;
+		if (!esGenerica())
 			return nivel;
-		for(Entidad derivada: getDerivadas()){
-			int nivelDerivada=derivada.getNivel();
-			if( nivel < nivelDerivada+1)
-				nivel=nivelDerivada+1;
+		for (Entidad derivada : getDerivadas()) {
+			int nivelDerivada = derivada.getNivel();
+			if (nivel < nivelDerivada + 1)
+				nivel = nivelDerivada + 1;
 		}
 		return nivel;
 	}
