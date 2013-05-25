@@ -2,10 +2,10 @@ package mereditor.interfaz.swt.dialogs;
 
 import java.util.Set;
 
-import mereditor.control.EntidadControl;
+import mereditor.control.EstadoControl;
 import mereditor.interfaz.swt.editores.Editor;
 import mereditor.interfaz.swt.editores.EditorFactory;
-import mereditor.modelo.Entidad;
+
 
 import org.eclipse.swt.widgets.Shell;
 
@@ -38,7 +38,7 @@ public class AgregarEstadoDialog extends AgregarComponenteDialog<Estado> {
 	
 	@Override
 	protected Editor<?> getEditor() {
-		return EditorFactory.getEditor(new EntidadControl());
+		return EditorFactory.getEditor(new EstadoControl());
 	}
 
 	@Override

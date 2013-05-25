@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import mereditor.interfaz.swt.Principal;
+import mereditor.interfaz.swt.listeners.ArrastreControlador;
 import mereditor.interfaz.swt.listeners.ArrastreSeleccionControlador;
 import mereditor.interfaz.swt.listeners.MovimientoControlador;
 import mereditor.interfaz.swt.listeners.SeleccionControlador;
@@ -18,6 +19,7 @@ import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.ChopboxAnchor;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.EllipseAnchor;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.Graphics;
@@ -38,9 +40,11 @@ public abstract class Figura<T extends Componente> extends Figure {
 	public final static Color grey = new Color(null, 100, 100, 100);
 	public final static Color defaultBackColor = new Color(null, 255, 255, 206);
 	public final static Color defaultLineColor = new Color(null, 0, 0, 0);
+	public final static Color stateColor = new Color(null, 65, 210, 2);
 	public final static Dimension defaultSize = new Dimension(80, 50);
 	public final static Font defaultFont = new Font(null, "Helvetica", 10, SWT.NONE);
-
+	public final static Font estadoFont = new Font(null, "Trebuchet MS", 10, SWT.NONE);
+	
 	protected Font font = defaultFont;
 	protected Color lineColor = defaultLineColor;
 	protected int lineStyle = Graphics.LINE_SOLID;
@@ -83,34 +87,7 @@ public abstract class Figura<T extends Componente> extends Figure {
 		this.init();
 	}
 
-	
-
-	public Figura(T componente, boolean isEstado ) {
-		this.componente = componente;
-
-		this.setFont(this.font);
-		this.setLayoutManager(new BorderLayout());
-
-		Graphics g = null;
-		g.drawOval(2, 2, 2, 2);
 		
-		this.paint(g);
-		
-		// Agregar controlador para arrastre
-		new ArrastreSeleccionControlador(this);
-		// Agregar controlador para el movivimento de las figuras loqueadas
-		new MovimientoControlador(this);
-
-		new SeleccionControlador(this);
-
-		// Agregar este controlador como listener para mouse clicks
-		this.addMouseListener((MouseListener) this.componente);
-		this.addFigureListener(Principal.getInstance());
-
-		this.initEstado();
-	}
-	
-	
 	/**
 	 * Establece los estilos por default para la figura y agrega un label con el
 	 * nombre del componente
@@ -128,25 +105,6 @@ public abstract class Figura<T extends Componente> extends Figure {
 	}
 	
 	
-	/**
-	 * COCOS TODO hacer un circulo
-	 * Establece los estilos por default para la figura y agrega un label con el
-	 * nombre del componente
-	 */
-	protected void initEstado() {
-		this.setBorder(new LineBorder(this.lineColor, this.lineWidth, this.lineStyle));
-		this.setBackgroundColor(this.backColor);
-
-		this.setOpaque(true);
-		this.setSize(Figura.defaultSize);
-
-		this.lblName = new Label();
-		this.lblName.setFont(this.font);
-		this.add(lblName, BorderLayout.CENTER);
-	}
-	
-	
-
 	/**
 	 * Devuelve la conexión entre esta figura y la figura del componente del id
 	 * especificado.
@@ -208,7 +166,7 @@ public abstract class Figura<T extends Componente> extends Figure {
 				this.lineStyle = repr.<Integer> get("EstiloLinea");
 			}
 
-			this.applyLineStyle();
+			//this.applyLineStyle();
 		}
 	}
 
