@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mereditor.interfaz.swt.editores.EditorFactory;
-import mereditor.interfaz.swt.figuras.EntidadFigure;
 import mereditor.interfaz.swt.figuras.EstadoFigure;
 import mereditor.interfaz.swt.figuras.Figura;
 import mereditor.modelo.Atributo;
-import mereditor.modelo.Entidad;
 
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.MouseEvent;

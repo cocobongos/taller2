@@ -18,6 +18,7 @@ import javax.xml.transform.stream.StreamResult;
 
 import mereditor.control.DiagramaControl;
 import mereditor.control.DiagramaLogicoControl;
+import mereditor.control.EstadoControl;
 import mereditor.interfaz.swt.builders.DialogBuilder;
 import mereditor.interfaz.swt.builders.DialogBuilder.PromptResult;
 import mereditor.interfaz.swt.builders.DialogBuilder.Resultado;
@@ -852,15 +853,12 @@ public class Principal extends Observable implements FigureListener {
 	 * Abre el dialogo para agregar un Estado al diagrama actual.
 	 */
 	public void agregarEstado() {
-		AgregarEstadoDialog dialog = new AgregarEstadoDialog();
-		if (dialog.open() == Window.OK) 
-		{
-			this.proyecto.agregar(dialog.getComponente());
-			this.actualizarVista();
-			TreeManager.agregarADiagramaActual(dialog.getComponente());
-			this.modificado(true);
 		
+		//TODO inicializar el nombre del estado
+		this.proyecto.agregar(new EstadoControl());
+		this.actualizarVista();
+		TreeManager.agregarADiagramaActual(new EstadoControl());
+		this.modificado(true);
 		}
-	}
 
 }

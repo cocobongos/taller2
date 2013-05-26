@@ -1,5 +1,6 @@
 package mereditor.interfaz.swt.editores;
 
+import esteditor.modelo.Estado;
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Diagrama;
 import mereditor.modelo.Entidad;
@@ -13,9 +14,12 @@ public class EditorFactory {
 		if (Diagrama.class.isInstance(componente))
 			return new DiagramaEditor((Diagrama) componente);
 
+		if (Estado.class.isInstance(componente))
+			return new EstadoEditor((Estado) componente);
+		
 		if (Entidad.class.isInstance(componente))
 			return new EntidadEditor((Entidad) componente);
-
+		
 		if (Relacion.class.isInstance(componente))
 			return new RelacionEditor((Relacion) componente);
 		

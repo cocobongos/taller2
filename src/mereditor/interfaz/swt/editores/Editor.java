@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import esteditor.modelo.Estado.PropieadEstado;
+
 public abstract class Editor<T> extends Dialog {
 	public final static String[] TiposAtributo = getTipos(TipoAtributo.class);
 	public final static String[] TiposEntidades = getTipos(TipoEntidad.class);
@@ -27,7 +29,7 @@ public abstract class Editor<T> extends Dialog {
 
 	public static final String ENTIDAD = "Entidad";
 	public static final String NOMBRE = "Nombre";
-	public static final String TIPO = "Tipo";
+	public static final String TIPO = "Tipo";	
 	public static final String ROL = "Rol";
 	public static final String CARDINALIDAD_MIN = "Card. Mín.";
 	public static final String CARDINALIDAD_MAX = "Card. Máx.";
@@ -40,6 +42,13 @@ public abstract class Editor<T> extends Dialog {
 	public static final String ORIGINAL = "Original";
 	public static final String AGREGAR = "Agregar";
 
+	//Cocobongos-Definicion constantes de Estado 
+	public final static String[] PropiedadEstados = getTipos(PropieadEstado.class);
+	public static final String PROPIEDAD = "Propiedad";
+	public static final String SUBDIAGRAMA = "Subdiagrama";
+	public static final String INTERFAZ = "Interfaz";
+
+	
 	protected T componente;
 
 	/**
