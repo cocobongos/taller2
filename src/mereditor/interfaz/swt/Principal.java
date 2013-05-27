@@ -855,9 +855,10 @@ public class Principal extends Observable implements FigureListener {
 	public void agregarEstado() {
 		
 		//TODO inicializar el nombre del estado
-		this.proyecto.agregar(new EstadoControl());
+		EstadoControl estadoControl=new EstadoControl();
+		this.proyecto.agregar(estadoControl);
 		this.actualizarVista();
-		TreeManager.agregarADiagramaActual(new EstadoControl());
+		TreeManager.agregarADiagramaActual(estadoControl);
 		this.modificado(true);
 		}
 

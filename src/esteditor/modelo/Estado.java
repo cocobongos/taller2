@@ -6,10 +6,10 @@ import mereditor.modelo.base.Componente;
 
 public class Estado extends Entidad {
 	
-	protected PropieadEstado propiedad;
+	protected PropieadEstado propiedad = PropieadEstado.NINGUNO;
 	
 	public enum PropieadEstado {
-		INICIAL, FINAL
+		INICIAL,NINGUNO,FINAL
 	}
 
 	public Estado(String nombre, String id, Componente padre, TipoEntidad tipo) {
@@ -31,5 +31,9 @@ public class Estado extends Entidad {
 
 	public void setPropiedad(PropieadEstado tipo) {
 		this.propiedad = tipo;
+	}
+	
+	public PropieadEstado getPropiedad() {
+		return this.propiedad;
 	}
 }

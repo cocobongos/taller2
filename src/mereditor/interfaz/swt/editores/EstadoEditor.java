@@ -86,7 +86,7 @@ public class EstadoEditor extends Editor<Estado> {
 	@Override
 	protected void cargarDatos() {
 		this.txtNombre.setText(this.componente.getNombre());
-		this.cboTipo.setText(this.componente.getTipo().name());
+		this.cboTipo.setText(this.componente.getPropiedad().name());
 	}
 
 	@Override
