@@ -221,11 +221,9 @@ public class Principal extends Observable implements FigureListener {
 		MenuBuilder.build(this);
 		this.toolBar = ToolBarBuilder.build(this);
 		this.sashForm = new SashForm(this.shell, SWT.HORIZONTAL);
-		TreeManager.build(this.sashForm);
 		this.lblStatus = new Label(shell, SWT.BORDER);
-
 		this.initFigureCanvas();
-
+		TreeManager.build(this.sashForm);
 		this.arregloLayout();
 
 		this.shell.open();
@@ -238,19 +236,22 @@ public class Principal extends Observable implements FigureListener {
 		FormData formData = null;
 
 		// Separacion vertical entre arbol y grafico.
-		formData = new FormData();
-		formData.top = new FormAttachment(this.toolBar);
-		formData.bottom = new FormAttachment(this.lblStatus);
-		formData.left = new FormAttachment(0, 0);
-		formData.right = new FormAttachment(100, 0);
-		this.sashForm.setLayoutData(formData);
-		this.mostrarArbol(false);
+		
 
+		formData = new FormData();
+		formData.left = new FormAttachment(this.toolBar,5);
+		formData.right = new FormAttachment(100, 0);
+		formData.top = new FormAttachment(0);
+		formData.bottom = new FormAttachment(this.lblStatus);
+	    this.sashForm.setLayoutData(formData);
+	    
+	    this.mostrarArbol(false);
 		formData = new FormData();
 		formData.left = new FormAttachment(0);
 		formData.right = new FormAttachment(100);
 		formData.bottom = new FormAttachment(100);
 		this.lblStatus.setLayoutData(formData);
+	    
 	}
 
 	/**
@@ -820,7 +821,7 @@ public class Principal extends Observable implements FigureListener {
 	 */
 	public void mostrarArbol(boolean mostrar) {
 		int peso = mostrar ? 3 : 0;
-		this.sashForm.setWeights(new int[] { peso, 16 });
+		this.sashForm.setWeights(new int[] { 16, peso });
 	}
 
 	/**

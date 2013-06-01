@@ -24,7 +24,7 @@ public class ToolBarBuilder implements Observer {
 	}
 
 	private ToolBarBuilder(Principal principal) {
-		this.toolBar = new ToolBar(principal.getShell(), SWT.HORIZONTAL
+		this.toolBar = new ToolBar(principal.getShell(), SWT.VERTICAL
 				| SWT.FLAT);
 		this.principal = principal;
 		this.principal.addObserver(this);
