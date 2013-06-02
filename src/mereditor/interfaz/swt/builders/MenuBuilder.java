@@ -16,6 +16,7 @@ public class MenuBuilder implements Observer {
 	private Principal principal;
 	private Menu menuBar;
 	private List<MenuItem> proyectoItems = new ArrayList<>();
+	private List<MenuItem> proyectoItemsEstado = new ArrayList<>();
 
 	public static Menu build(Principal principal) {
 		return new MenuBuilder(principal).menuBar;

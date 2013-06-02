@@ -45,6 +45,7 @@ public class EstadoControl extends Estado implements Control<Estado>, MouseListe
 	public void dibujar(Figure contenedor, String idDiagrama) {
 		EstadoFigure figuraEntidad = (EstadoFigure) this.getFigura(idDiagrama);
 		contenedor.add(figuraEntidad);
+		
 
 		/*
 		 * Dibujar y conectar Atributos

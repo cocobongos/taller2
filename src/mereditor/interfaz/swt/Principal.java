@@ -179,6 +179,7 @@ public class Principal extends Observable implements FigureListener {
 
 	private SashForm sashForm;
 	private ToolBar toolBar;
+	private ToolBar toolBarEstado;
 	private FigureCanvas figureCanvas;
 	private Label lblStatus;
 
@@ -191,6 +192,19 @@ public class Principal extends Observable implements FigureListener {
 	 * Proyecto que se encuentra abierto.
 	 */
 	private Proyecto proyecto;
+
+	/**
+	 * si existe algun estado en el proyecto
+	 */
+	private boolean existeEstado;
+
+	public boolean isExisteEstado() {
+		return existeEstado;
+	}
+
+	public void setExisteEstado(boolean existeEstado) {
+		this.existeEstado = existeEstado;
+	}
 
 	/**
 	 * Handler del evento cuando se cierra la aplicaciî‰¢. Si hay modificaciones
@@ -220,6 +234,7 @@ public class Principal extends Observable implements FigureListener {
 		// Construir y agregar los controles.
 		MenuBuilder.build(this);
 		this.toolBar = ToolBarBuilder.build(this);
+		this.toolBarEstado = ToolBarBuilder.buildEstado(this);
 		this.sashForm = new SashForm(this.shell, SWT.HORIZONTAL);
 		this.lblStatus = new Label(shell, SWT.BORDER);
 		this.initFigureCanvas();
@@ -238,13 +253,16 @@ public class Principal extends Observable implements FigureListener {
 		// Separacion vertical entre arbol y grafico.
 		
 
+		//TOOLBAR:
 		formData = new FormData();
-		formData.left = new FormAttachment(this.toolBar,5);
-		formData.right = new FormAttachment(100, 0);
-		formData.top = new FormAttachment(0);
+		formData.top = new FormAttachment(this.toolBar);
+		formData.left = new FormAttachment(this.toolBarEstado,50,0);
 		formData.bottom = new FormAttachment(this.lblStatus);
-	    this.sashForm.setLayoutData(formData);
+		formData.right = new FormAttachment(100, 0);
+	    this.sashForm.setLayoutData(formData);	
 	    
+	    
+	    //ARBOL DE PROYECTOS:
 	    this.mostrarArbol(false);
 		formData = new FormData();
 		formData.left = new FormAttachment(0);
@@ -354,6 +372,8 @@ public class Principal extends Observable implements FigureListener {
 		this.lblStatus.setText(status);
 	}
 
+
+	
 	/**
 	 * Actualiza el titulo dependiendo de si el proyecto tiene modificaciones
 	 * que todavåƒ˜ no se guardaron.
@@ -861,6 +881,12 @@ public class Principal extends Observable implements FigureListener {
 		this.actualizarVista();
 		TreeManager.agregarADiagramaActual(estadoControl);
 		this.modificado(true);
-		}
+		
+		this.setExisteEstado(true);
+
+		// Notificar a la toolbar que hay un proyecto abierto.
+		this.setChanged();
+		this.notifyObservers();
+	}
 
 }

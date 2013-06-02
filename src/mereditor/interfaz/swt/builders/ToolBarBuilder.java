@@ -17,15 +17,26 @@ import org.eclipse.swt.widgets.ToolItem;
 public class ToolBarBuilder implements Observer {
 	private Principal principal;
 	private ToolBar toolBar;
+	private ToolBar toolBarEstado;
 	private List<ToolItem> proyectoItems = new ArrayList<>();
+	private List<ToolItem> proyectoItemsEstado = new ArrayList<>();
 
 	public static ToolBar build(Principal principal) {
 		return new ToolBarBuilder(principal).toolBar;
 	}
+	
+
+	public static ToolBar buildEstado(Principal principal) {
+		return new ToolBarBuilder(principal).toolBarEstado;
+	}	
 
 	private ToolBarBuilder(Principal principal) {
-		this.toolBar = new ToolBar(principal.getShell(), SWT.VERTICAL
+		this.toolBar = new ToolBar(principal.getShell(), SWT.HORIZONTAL
 				| SWT.FLAT);
+		
+		this.toolBarEstado = new ToolBar(principal.getShell(), SWT.VERTICAL
+				| SWT.FLAT);
+		
 		this.principal = principal;
 		this.principal.addObserver(this);
 		this.init();
@@ -76,13 +87,6 @@ public class ToolBarBuilder implements Observer {
 		item.addSelectionListener(AccionesProvider.agregarEntidad);
 		proyectoItems.add(item);
 		
-		//for cocos estaditor
-		item = new ToolItem(this.toolBar, SWT.PUSH);
-		item.setToolTipText("Agregar Estado");
-		item.setImage(Principal.getImagen("estado.png"));
-		item.addSelectionListener(AccionesProvider.agregarEstado);
-		proyectoItems.add(item);
-
 		item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Agregar Relacion");
 		item.setImage(Principal.getImagen("relacion.png"));
@@ -94,7 +98,7 @@ public class ToolBarBuilder implements Observer {
 		item.setImage(Principal.getImagen("jerarquia.png"));
 		item.addSelectionListener(AccionesProvider.agregarJerarquia);
 		proyectoItems.add(item);
-		
+
 		item = new ToolItem(this.toolBar, SWT.SEPARATOR);
 
 		item = new ToolItem(this.toolBar, SWT.PUSH);
@@ -160,12 +164,53 @@ public class ToolBarBuilder implements Observer {
 		
 		item = new ToolItem(this.toolBar, SWT.SEPARATOR);
 		
+		
+		//for cocos estaditor
+		item = new ToolItem(this.toolBar, SWT.PUSH);
+		item.setToolTipText("Agregar Estado");
+		item.setImage(Principal.getImagen("estado.png"));
+		item.addSelectionListener(AccionesProvider.agregarEstado);
+		proyectoItems.add(item);
+		
+		
+		item = new ToolItem(this.toolBar, SWT.SEPARATOR);		
+		
 		item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Salir");
 		item.setImage(Principal.getImagen("salir.png"));
 		item.addSelectionListener(AccionesProvider.salir);
 
 		this.habilitarItems(false);
+		
+		//ITEMS TOOLBAR ESTADO:
+		//FIXME el primero no aparece :( (lo tapa el icono de nuevo)
+		
+		item = new ToolItem(this.toolBarEstado, SWT.PUSH);
+		item.setToolTipText("Prueba de item");
+		item.setImage(Principal.getImagen("estado.png"));
+		item.addSelectionListener(AccionesProvider.agregarEstado);
+		proyectoItemsEstado.add(item);
+		
+		item = new ToolItem(this.toolBarEstado, SWT.SEPARATOR);	
+		item = new ToolItem(this.toolBarEstado, SWT.SEPARATOR);	
+		
+		item = new ToolItem(this.toolBarEstado, SWT.PUSH);
+		item.setToolTipText("Prueba de item");
+		item.setImage(Principal.getImagen("Imagen.png"));
+		//item.addSelectionListener(AccionesProvider.agregarEstado);
+		proyectoItemsEstado.add(item);
+		
+		item = new ToolItem(this.toolBarEstado, SWT.PUSH);
+		item.setToolTipText("Prueba de item");
+		item.setImage(Principal.getImagen("Imagen.png"));
+		//item.addSelectionListener(AccionesProvider.agregarEstado);
+		proyectoItemsEstado.add(item);		
+		item = new ToolItem(this.toolBarEstado, SWT.SEPARATOR);
+		
+		habilitarItemsEstado(false);
+		
+		
+		
 	}
 
 	private void habilitarItems(boolean habilitar) {
@@ -176,9 +221,20 @@ public class ToolBarBuilder implements Observer {
 				item.getControl().setEnabled(habilitar);
 		}
 	}
+	
+	
+	private void habilitarItemsEstado(boolean habilitar) {
+		for (ToolItem item : this.proyectoItemsEstado) {
+			item.setEnabled(habilitar);
+
+			if (item.getControl() != null)
+				item.getControl().setEnabled(habilitar);
+		}
+	}
 
 	@Override
 	public void update(Observable principal, Object arg) {
 		this.habilitarItems(this.principal.getProyecto() != null);
+		this.habilitarItemsEstado(this.principal.isExisteEstado());
 	}
 }
