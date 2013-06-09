@@ -876,13 +876,21 @@ public class Principal extends Observable implements FigureListener {
 	public void agregarEstado() {
 		
 		//TODO inicializar el nombre del estado
-		EstadoControl estadoControl=new EstadoControl();
-		this.proyecto.agregar(estadoControl);
-		this.actualizarVista();
-		TreeManager.agregarADiagramaActual(estadoControl);
-		this.modificado(true);
+//		EstadoControl estadoControl=new EstadoControl();
+//		this.proyecto.agregar(estadoControl);
+//		this.actualizarVista();
+//		TreeManager.agregarADiagramaActual(estadoControl);
+//		this.modificado(true);
+//		
+//		this.setExisteEstado(true);
 		
-		this.setExisteEstado(true);
+		AgregarEstadoDialog dialog = new AgregarEstadoDialog();
+		if (dialog.open() == Window.OK) {
+			this.proyecto.agregar(dialog.getComponente());
+			this.actualizarVista();
+			TreeManager.agregarADiagramaActual(dialog.getComponente());
+			this.modificado(true);
+		}		
 
 		// Notificar a la toolbar que hay un proyecto abierto.
 		this.setChanged();

@@ -7,6 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import esteditor.modelo.Estado;
+
 import mereditor.modelo.base.Componente;
 import mereditor.modelo.base.ComponenteNombre;
 import mereditor.modelo.base.ComponenteAtributos;
@@ -222,6 +224,9 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 		private Entidad entidad;
 		private Set<Atributo> atributos = new HashSet<>();
 		private Set<Entidad> entidades = new HashSet<>();
+		
+		//FIXME estado deberia heredar de entidad? si, hasta que punto? no, es el mismo codigo?
+		private Set<Estado> estados = new HashSet<>();
 
 		public Identificador(Entidad entidad) {
 			if (entidad == null)
@@ -301,6 +306,10 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 		public boolean contiene(Componente componente) {
 			return this.atributos.contains(componente)
 					|| this.entidades.contains(componente);
+		}
+
+		public Set<Estado> getEstadoes() {
+			return Collections.unmodifiableSet(estados);
 		}
 	}
 }

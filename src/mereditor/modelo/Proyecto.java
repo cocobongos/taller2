@@ -180,6 +180,7 @@ public class Proyecto extends ComponenteNombre implements ProyectoProxy {
 
 		if (this.diagramaActual != null)
 			this.diagramaActual.agregar(componente);
+
 	}
 	
 	/**

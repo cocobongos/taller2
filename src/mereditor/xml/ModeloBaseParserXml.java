@@ -6,6 +6,7 @@ import java.util.List;
 import mereditor.control.AtributoControl;
 import mereditor.control.DiagramaControl;
 import mereditor.control.EntidadControl;
+import mereditor.control.EstadoControl;
 import mereditor.control.JerarquiaControl;
 import mereditor.control.RelacionControl;
 import mereditor.modelo.Atributo;
@@ -22,6 +23,8 @@ import org.w3c.dom.Attr;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+
+import esteditor.modelo.Estado;
 
 public class ModeloBaseParserXml extends ModeloParserXml {
 
@@ -50,7 +53,9 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 		doc.appendChild(this.root);
 
 		for (Componente componente : proyecto.getComponentes()) {
-			if (componente.es(Entidad.class) || componente.es(Relacion.class)
+			if ( componente.es(Estado.class) 
+					||componente.es(Entidad.class) 
+					|| componente.es(Relacion.class)
 					|| componente.es(Jerarquia.class)
 					|| componente == proyecto.getDiagramaRaiz())
 				this.root.appendChild(this.convertirXmlizable(componente)
@@ -308,6 +313,18 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 	String obtenerTipo(Element elemento) {
 		return elemento.getAttribute(Constants.TIPO_ATTR);
 	}
+	
+	
+	/**
+	 * FIXME hacerlo compatible con un estado
+	 * Obtiene el valor del atributo tipo de un elemento.
+	 * 
+	 * @param elemento
+	 * @return
+	 */
+	String obtenerPropiedadEstado(Element elemento) {
+		return elemento.getAttribute(Constants.TIPO_ATTR);
+	}
 
 	/**
 	 * Obtiene la cardinalidad minima y maxima de un atributo o relacion.
@@ -401,6 +418,8 @@ public class ModeloBaseParserXml extends ModeloParserXml {
 	}
 
 	protected Xmlizable convertirXmlizable(Object componente) throws Exception {
+		if (Estado.class.isInstance(componente))
+			return new EstadoXml((EstadoControl) componente);
 		if (Entidad.class.isInstance(componente))
 			return new EntidadXml((EntidadControl) componente);
 		if (Relacion.class.isInstance(componente))
