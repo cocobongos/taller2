@@ -1,6 +1,7 @@
 package mereditor.interfaz.swt.editores;
 
 import esteditor.modelo.Estado;
+import esteditor.modelo.Transicion;
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Diagrama;
 import mereditor.modelo.Entidad;
@@ -22,6 +23,10 @@ public class EditorFactory {
 		
 		if (Relacion.class.isInstance(componente))
 			return new RelacionEditor((Relacion) componente);
+		
+		if (Transicion.class.isInstance(componente))
+			return new TransicionEditor((Transicion) componente);
+		
 		
 		if (Atributo.class.isInstance(componente))
 			return new AtributoEditor((Atributo) componente);

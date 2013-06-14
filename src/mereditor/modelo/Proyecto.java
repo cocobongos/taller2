@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import esteditor.modelo.Estado;
+import esteditor.modelo.Transicion;
 
 import mereditor.control.DiagramaControl;
 import mereditor.modelo.Validacion.EstadoValidacion;
@@ -405,5 +406,17 @@ public class Proyecto extends ComponenteNombre implements ProyectoProxy {
 	@Override
 	public Set<Estado> getEstadosDiagrama() {
 		return this.diagramaActual.getEstados(false);
+	}
+
+	@Override
+	public Set<Transicion> getTransicionesDisponibles() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Set<Transicion> getTransicionesDiagrama() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

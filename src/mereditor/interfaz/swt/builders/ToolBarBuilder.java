@@ -172,6 +172,14 @@ public class ToolBarBuilder implements Observer {
 		item.addSelectionListener(AccionesProvider.agregarEstado);
 		proyectoItems.add(item);
 		
+		//for cocos estaditor
+		item = new ToolItem(this.toolBar, SWT.PUSH);
+		item.setToolTipText("Agregar Transicion");
+		item.setImage(Principal.getImagen("Flecha.png"));
+		item.addSelectionListener(AccionesProvider.agregarTransicion);
+		proyectoItems.add(item);
+
+		
 		
 		item = new ToolItem(this.toolBar, SWT.SEPARATOR);		
 		

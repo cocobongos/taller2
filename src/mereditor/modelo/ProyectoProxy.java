@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Set;
 
 import esteditor.modelo.Estado;
+import esteditor.modelo.Transicion;
 
 public interface ProyectoProxy {
 	/**
@@ -71,6 +72,20 @@ public interface ProyectoProxy {
 	 * @return
 	 */
 	public Set<Estado> getEstadosDiagrama();
+
+	/**
+	 * Devuelve todas llas transiciones
+	 * @author cocos
+	 * @return
+	 */
+	public Set<Transicion> getTransicionesDisponibles();
 	
+	
+	/**
+	 * Devuelve las transiciones
+	 * @author cocos
+	 * @return
+	 */
+	public Set<Transicion> getTransicionesDiagrama();
 	
 }

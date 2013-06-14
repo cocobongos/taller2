@@ -29,6 +29,7 @@ import mereditor.interfaz.swt.dialogs.AgregarEntidadDialog;
 import mereditor.interfaz.swt.dialogs.AgregarEstadoDialog;
 import mereditor.interfaz.swt.dialogs.AgregarJerarquiaDialog;
 import mereditor.interfaz.swt.dialogs.AgregarRelacionDialog;
+import mereditor.interfaz.swt.dialogs.AgregarTransicionDialog;
 import mereditor.interfaz.swt.figuras.DiagramaFigura;
 import mereditor.interfaz.swt.figuras.DiagramaLogicoFigura;
 import mereditor.modelo.Proyecto;
@@ -895,6 +896,19 @@ public class Principal extends Observable implements FigureListener {
 		// Notificar a la toolbar que hay un proyecto abierto.
 		this.setChanged();
 		this.notifyObservers();
+	}
+	
+	/**
+	 * Abre el dialogo para agregar una Relacion al diagrama actual.
+	 */
+	public void agregarTransicion() {
+		AgregarTransicionDialog dialog = new AgregarTransicionDialog();
+		if (dialog.open() == Window.OK) {
+			this.proyecto.agregar(dialog.getComponente());
+			this.actualizarVista();
+			TreeManager.agregarADiagramaActual(dialog.getComponente());
+			this.modificado(true);
+		}
 	}
 
 }

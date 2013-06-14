@@ -99,6 +99,15 @@ public class AccionesProvider {
 			principal().agregarEstado();
 		}
 	};
+	/**
+	 * Agregar una Trancision al diagrama actual.
+	 */
+	public static final SelectionListener agregarTransicion = new SelectionAdapter() {
+		@Override
+		public void widgetSelected(SelectionEvent e) {
+			principal().agregarTransicion();
+		};
+	};
 
 	/**
 	 * Agregar una entidad al diagrama actual.

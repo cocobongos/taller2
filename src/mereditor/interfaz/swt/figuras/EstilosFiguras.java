@@ -6,6 +6,7 @@ import java.util.Map;
 import org.eclipse.draw2d.Graphics;
 
 import esteditor.modelo.Estado;
+import esteditor.modelo.Transicion;
 
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Entidad;
@@ -30,6 +31,8 @@ public class EstilosFiguras {
 		estilos.put(Relacion.class, new HashMap<Object, PList>());
 		estilos.put(Atributo.class, new HashMap<Object, PList>());
 		estilos.put(Jerarquia.class, new HashMap<Object, PList>());
+		estilos.put(Transicion.class, new HashMap<Object, PList>());
+		
 		
 		//cocos
 		estilos.put(Estado.class, new HashMap<Object, PList>());
