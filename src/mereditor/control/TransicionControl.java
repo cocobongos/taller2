@@ -91,7 +91,7 @@ public class TransicionControl extends Transicion implements Control<Transicion>
 
 	@Override
 	public String getNombreIcono() {
-		return "relacion.png";
+		return "Flecha.png";
 	}
 
 	/**

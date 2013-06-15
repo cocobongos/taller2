@@ -15,7 +15,7 @@ public class EstadoXml extends EstadoControl implements Xmlizable {
 	public EstadoXml(EstadoControl componente) {
 		this.id = componente.getId();
 		this.nombre = componente.getNombre();
-		this.tipo = componente.getTipo();
+		this.propiedad = componente.getPropiedad();
 
 		this.atributos = new HashSet<Atributo>(componente.getAtributos());
 		this.identificadores = componente.getIdentificadores();
@@ -29,7 +29,7 @@ public class EstadoXml extends EstadoControl implements Xmlizable {
 		
 		Element elemento = parser.crearElemento(Constants.ENTIDAD_TAG);
 		parser.agregarId(elemento, this.id.toString());
-		parser.agregarTipo(elemento, this.tipo.toString());
+		parser.agregarTipo(elemento, this.propiedad.toString());
 		parser.agregarNombre(elemento, nombre);
 
 		if (this.atributos.size() > 0) {
@@ -73,6 +73,6 @@ public class EstadoXml extends EstadoControl implements Xmlizable {
 		}
 
 		// Obtener identificadores externos
-		this.identificadores.addAll(parser.obtenerIdentificadores(elemento, this));
+	//	this.identificadores.addAll(parser.obtenerIdentificadores(elemento, this));
 	}
 }

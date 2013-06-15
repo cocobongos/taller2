@@ -10,11 +10,11 @@ import mereditor.modelo.base.Componente;
 public class EstadoFormulario extends Estado {
 
 	public EstadoFormulario(String nombre, String id, Componente padre,
-			TipoEntidad tipo) {
+			PropieadEstado tipo) {
 		super(nombre, id, padre, tipo);
 	}
 
-	public EstadoFormulario(String nombre, String id, TipoEntidad tipo) {
+	public EstadoFormulario(String nombre, String id, PropieadEstado tipo) {
 		super(nombre, id, tipo);
 	}
 

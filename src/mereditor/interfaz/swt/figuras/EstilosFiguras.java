@@ -7,6 +7,7 @@ import org.eclipse.draw2d.Graphics;
 
 import esteditor.modelo.Estado;
 import esteditor.modelo.Transicion;
+import esteditor.modelo.Transicion.TipoTransicion;
 
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Entidad;
@@ -44,7 +45,10 @@ public class EstilosFiguras {
 		
 		estilos.get(Relacion.class).put(TipoRelacion.ASOCIACION, new PList());
 		estilos.get(Relacion.class).put(TipoRelacion.COMPOSICION, new PList());
-		
+
+		estilos.get(Transicion.class).put(TipoTransicion.ASOCIACION, new PList());
+		estilos.get(Transicion.class).put(TipoTransicion.COMPOSICION, new PList());
+
 		estilos.get(Atributo.class).put(TipoAtributo.CARACTERIZACION, new PList());
 		estilos.get(Atributo.class).put(TipoAtributo.DERIVADO_CALCULO, new PList());
 		estilos.get(Atributo.class).put(TipoAtributo.DERIVADO_COPIA, new PList());
@@ -84,6 +88,15 @@ public class EstilosFiguras {
 		rep = estilos.get(Relacion.class).get(TipoRelacion.COMPOSICION);
 		rep.set("ColorFondo", crema);
 		rep.set("ColorLinea", negro);
+		
+		rep = estilos.get(Transicion.class).get(TipoTransicion.ASOCIACION);
+		rep.set("ColorFondo", crema);
+		rep.set("ColorLinea", negro);
+
+		rep = estilos.get(Transicion.class).get(TipoTransicion.COMPOSICION);
+		rep.set("ColorFondo", crema);
+		rep.set("ColorLinea", negro);
+		
 		
 		/**
 		 * Atributo

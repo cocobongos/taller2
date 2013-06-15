@@ -34,15 +34,15 @@ public class TransicionFigure extends Figura<Transicion> {
 		// Quitar todos los controles hijos
 		this.removeAll();
 
-		this.rombo = new PolygonShape();
-		this.rombo.setAntialias(SWT.ON);
-		this.rombo.setLayoutManager(new BorderLayout());
-		this.rombo.setBackgroundColor(this.backColor);
-		this.applyLineStyle();
-		this.rombo.setOpaque(false);
-		this.rombo.add(this.lblName, BorderLayout.CENTER);
-		this.add(this.rombo, BorderLayout.CENTER);
-		this.generarPuntos();
+		//this.rombo = new PolygonShape();
+		//this.rombo.setAntialias(SWT.ON);
+		//this.rombo.setLayoutManager(new BorderLayout());
+		//this.rombo.setBackgroundColor(this.backColor);
+		//this.applyLineStyle();
+		//this.rombo.setOpaque(false);
+		//this.rombo.add(this.lblName, BorderLayout.CENTER);
+		this.add(this.lblName, BorderLayout.CENTER);
+		//this.generarPuntos();
 
 		this.lblName.setText(this.componente.getNombre());
 	}
@@ -66,17 +66,17 @@ public class TransicionFigure extends Figura<Transicion> {
 	public void setRepresentacion(PList representacion) {
 		super.setRepresentacion(representacion);
 		// Regenerar los puntos del rombo
-		this.generarPuntos();
+		//this.generarPuntos();
 	}
 	
 	@Override
 	protected void applyBackgroundColor() {
-		this.rombo.setBackgroundColor(this.backColor);
+		//this.rombo.setBackgroundColor(this.backColor);
 	}
 	
 	@Override
 	protected void applyLineStyle() {
-		this.applyLineStyle(this.rombo);
+		//this.applyLineStyle(this.rombo);
 	}
 
 	/**

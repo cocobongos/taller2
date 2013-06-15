@@ -5,17 +5,19 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
-import mereditor.interfaz.swt.figuras.EntidadFigure;
+import mereditor.interfaz.swt.figuras.EstadoFigure;
 import mereditor.interfaz.swt.figuras.Figura;
 import mereditor.modelo.Atributo;
 import mereditor.modelo.Diagrama;
-import mereditor.modelo.Entidad;
 import mereditor.modelo.Proyecto;
-import mereditor.modelo.Entidad.Identificador;
-import mereditor.modelo.Relacion;
+//import mereditor.modelo.Entidad.Identificador;
+import esteditor.modelo.Estado.Identificador;
+import esteditor.modelo.Transicion;
 
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.Figure;
+
+import esteditor.modelo.Estado;
 
 public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 	
@@ -32,13 +34,13 @@ public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 	public void dibujar(Figure contenedor, String idDiagrama) {
 		idDiagrama = idDiagrama != null ? idDiagrama : this.id;
 
-		Set<Entidad> entidades = this.getEntidades(false);
+		Set<Estado> entidades = this.getEstados(false);
 		this.dibujar(contenedor, idDiagrama, entidades);
-		this.dibujar(contenedor, idDiagrama, this.getRelaciones(false));
+		this.dibujar(contenedor, idDiagrama, this.getTransiciones(false));
 		this.dibujar(contenedor, idDiagrama, this.getJerarquias(false));
 
 		List<Identificador> identificadores = new ArrayList<>();
-		for (Entidad entidad : entidades)
+		for (Estado entidad : entidades)
 			identificadores.addAll(entidad.getIdentificadores());
 
 		this.dibujarIdentificadores(identificadores);
@@ -57,8 +59,8 @@ public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 		for (Identificador identificador : identificadores) {
 			List<Connection> conexiones = new ArrayList<>();
 
-			EntidadControl entidadCtrl = (EntidadControl) identificador.getEntidad();
-			EntidadFigure figEntidad = (EntidadFigure) entidadCtrl.getFigura(this.id);
+			EstadoControl entidadCtrl = (EstadoControl) identificador.getEstado();
+			EstadoFigure figEntidad = (EstadoFigure) entidadCtrl.getFigura(this.id);
 
 			// Internos y mixtos
 			if (identificador.isInterno()) {
@@ -69,11 +71,11 @@ public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 			// Externos
 			if (identificador.isExterno()) {
 				// Recorrer las entidades del identificador
-				for (Entidad entidadIdf : identificador.getEntidades()) {
+				for (Estado entidadIdf : identificador.getEstados()) {
 					// Encontrar la relacion que comparten
-					RelacionControl relacion = (RelacionControl) entidadCtrl.relacion(entidadIdf);
+					TransicionControl relacion = (TransicionControl) entidadCtrl.transicion(entidadIdf);
 					if (relacion != null && this.contiene(relacion)) {
-						Figura<Relacion> figRelacion = relacion.getFigura(this.getId());
+						Figura<Transicion> figRelacion = relacion.getFigura(this.getId());
 						// Obtener el conector de la relacion con la entidad del
 						// identificador
 						Connection conexion = figRelacion.getConexion(entidadIdf.getId());
@@ -90,10 +92,10 @@ public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 				for (Atributo atributo : identificador.getAtributos())
 					conexiones.add(figEntidad.getConexion(atributo.getId()));
 				// Agregar los conectores de las entidades con la relacion
-				for (Entidad entidadIdf : identificador.getEntidades()) {
-					RelacionControl relacion = (RelacionControl) entidadCtrl.relacion(entidadIdf);
+				for (Estado entidadIdf : identificador.getEstados()) {
+					TransicionControl relacion = (TransicionControl) entidadCtrl.transicion(entidadIdf);
 					if (relacion != null && this.contiene(relacion)) {
-						Figura<Relacion> figRelacion = relacion.getFigura(this.getId());
+						Figura<Transicion> figRelacion = relacion.getFigura(this.getId());
 						conexiones.add(figRelacion.getConexion(entidadIdf.getId()));
 					}
 				}
@@ -117,3 +119,4 @@ public class DiagramaControl extends Diagrama implements Control<Diagrama> {
 		return "diagrama.png";
 	}
 }
+

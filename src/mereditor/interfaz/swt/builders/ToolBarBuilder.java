@@ -81,7 +81,22 @@ public class ToolBarBuilder implements Observer {
 		item.addSelectionListener(AccionesProvider.nuevoDiagrama);
 		proyectoItems.add(item);
 
+		//for cocos estaditor
 		item = new ToolItem(this.toolBar, SWT.PUSH);
+		item.setToolTipText("Agregar Estado");
+		item.setImage(Principal.getImagen("estado.png"));
+		item.addSelectionListener(AccionesProvider.agregarEstado);
+		proyectoItems.add(item);
+		
+		//for cocos estaditor
+		item = new ToolItem(this.toolBar, SWT.PUSH);
+		item.setToolTipText("Agregar Transicion");
+		item.setImage(Principal.getImagen("Flecha.png"));
+		item.addSelectionListener(AccionesProvider.agregarTransicion);
+		proyectoItems.add(item);
+
+		
+/*		item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Agregar Entidad");
 		item.setImage(Principal.getImagen("entidad.png"));
 		item.addSelectionListener(AccionesProvider.agregarEntidad);
@@ -92,13 +107,13 @@ public class ToolBarBuilder implements Observer {
 		item.setImage(Principal.getImagen("relacion.png"));
 		item.addSelectionListener(AccionesProvider.agregarRelacion);
 		proyectoItems.add(item);
-
-		item = new ToolItem(this.toolBar, SWT.PUSH);
+*/
+/*		item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Agregar Jerarquia");
 		item.setImage(Principal.getImagen("jerarquia.png"));
 		item.addSelectionListener(AccionesProvider.agregarJerarquia);
 		proyectoItems.add(item);
-
+*/
 		item = new ToolItem(this.toolBar, SWT.SEPARATOR);
 
 		item = new ToolItem(this.toolBar, SWT.PUSH);
@@ -148,36 +163,23 @@ public class ToolBarBuilder implements Observer {
 		zoomOutItem.setData(cboZoom);
 		zoomInItem.setData(cboZoom);
 
-		item = new ToolItem(this.toolBar, SWT.PUSH);
+		/*item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Explorador del Proyecto");
 		item.setImage(Principal.getImagen("tree_mode.png"));
 		item.addSelectionListener(AccionesProvider.mostrarArbol);
 		proyectoItems.add(item);
-
-		item = new ToolItem(this.toolBar, SWT.SEPARATOR);
+*/
+	/*	item = new ToolItem(this.toolBar, SWT.SEPARATOR);
 
 		item = new ToolItem(this.toolBar, SWT.PUSH);
 		item.setToolTipText("Convertir A Logico");
 		item.setImage(Principal.getImagen("convertir.png"));
 		item.addSelectionListener(AccionesProvider.convertir);
 		proyectoItems.add(item);
-		
+*/		
 		item = new ToolItem(this.toolBar, SWT.SEPARATOR);
 		
 		
-		//for cocos estaditor
-		item = new ToolItem(this.toolBar, SWT.PUSH);
-		item.setToolTipText("Agregar Estado");
-		item.setImage(Principal.getImagen("estado.png"));
-		item.addSelectionListener(AccionesProvider.agregarEstado);
-		proyectoItems.add(item);
-		
-		//for cocos estaditor
-		item = new ToolItem(this.toolBar, SWT.PUSH);
-		item.setToolTipText("Agregar Transicion");
-		item.setImage(Principal.getImagen("Flecha.png"));
-		item.addSelectionListener(AccionesProvider.agregarTransicion);
-		proyectoItems.add(item);
 
 		
 		
@@ -193,7 +195,7 @@ public class ToolBarBuilder implements Observer {
 		//ITEMS TOOLBAR ESTADO:
 		//FIXME el primero no aparece :( (lo tapa el icono de nuevo)
 		
-		item = new ToolItem(this.toolBarEstado, SWT.PUSH);
+	/*	item = new ToolItem(this.toolBarEstado, SWT.PUSH);
 		item.setToolTipText("Prueba de item");
 		item.setImage(Principal.getImagen("estado.png"));
 		item.addSelectionListener(AccionesProvider.agregarEstado);
@@ -217,7 +219,7 @@ public class ToolBarBuilder implements Observer {
 		
 		habilitarItemsEstado(false);
 		
-		
+		*/
 		
 	}
 

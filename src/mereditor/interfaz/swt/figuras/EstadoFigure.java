@@ -23,7 +23,7 @@ public class EstadoFigure extends Figura<Estado> {
 	
 	public EstadoFigure(Estado e) {
 		super(e);
-		this.setRepresentacion(EstilosFiguras.get(Estado.class, this.componente.getTipo()));
+		this.setRepresentacion(EstilosFiguras.get(Estado.class, this.componente.getPropiedad()));
 	}
 
 	@Override

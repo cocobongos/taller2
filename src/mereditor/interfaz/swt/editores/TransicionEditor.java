@@ -130,10 +130,10 @@ public class TransicionEditor extends Editor<Transicion> {
 		componente.setTipo(TipoTransicion.valueOf(this.cboTipo.getText()));
 
 		//for (Atributo atributo : this.tblAtributos.getElementos())
-		//E	componente.addAtributo(atributo);
+		//	componente.addAtributo(atributo);
 		
-		for (Atributo atributo : this.tblAtributos.getElementosEliminados())
-			componente.removeAtributo(atributo);
+	//	for (Atributo atributo : this.tblAtributos.getElementosEliminados())
+	//		componente.removeAtributo(atributo);
 		
 		for (EstadoTransicion entidadRelacion : this.tblEstados.getElementos())
 			componente.addParticipante(entidadRelacion);

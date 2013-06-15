@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import esteditor.modelo.Estado;
+import esteditor.modelo.Transicion;
 
 import mereditor.modelo.Validacion.EstadoValidacion;
 import mereditor.modelo.base.Componente;
@@ -125,6 +126,23 @@ public class Diagrama extends ComponenteNombre {
 		return relaciones;
 	}
 
+	/**
+	 * Cocobongos
+	 * Obtiene una colecci��n con todas las Transiciones
+	 * 
+	 * @param incluirAncestros
+	 * @return
+	 */
+	public Set<Transicion> getTransiciones(boolean incluirAncestros) {
+		Set<Transicion> transiciones = Componente.filtrarComponentes(Transicion.class, this.componentes);
+
+		if (incluirAncestros && this.getPadre() != null) {
+			Diagrama diagrama = (Diagrama) this.getPadre();
+			transiciones.addAll(diagrama.getTransiciones(incluirAncestros));
+		}
+
+		return transiciones;
+	}
 	/**
 	 * Obtiene una colecci��n con todas las Jerarquias de este diagrama.
 	 * 

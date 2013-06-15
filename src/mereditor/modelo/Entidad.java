@@ -308,7 +308,7 @@ public class Entidad extends ComponenteNombre implements ComponenteAtributos {
 					|| this.entidades.contains(componente);
 		}
 
-		public Set<Estado> getEstadoes() {
+		public Set<Estado> getEstados() {
 			return Collections.unmodifiableSet(estados);
 		}
 	}

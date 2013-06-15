@@ -20,7 +20,7 @@ public class EstadoSubDiagrama extends Estado {
 	 * @param diagrama
 	 */
 	public EstadoSubDiagrama(String nombre, String id, Componente padre,
-			TipoEntidad tipo, Diagrama diagrama) {
+			PropieadEstado tipo, Diagrama diagrama) {
 		super(nombre, id, padre, tipo);
 		this.diagrama = diagrama;
 	}
@@ -32,7 +32,7 @@ public class EstadoSubDiagrama extends Estado {
 	 * @param tipo
 	 */
 	public EstadoSubDiagrama(String nombre, String id, Componente padre,
-			TipoEntidad tipo) {
+			PropieadEstado tipo) {
 		super(nombre, id, padre, tipo);
 	}
 
@@ -41,7 +41,7 @@ public class EstadoSubDiagrama extends Estado {
 	 * @param id
 	 * @param tipo
 	 */
-	public EstadoSubDiagrama(String nombre, String id, TipoEntidad tipo) {
+	public EstadoSubDiagrama(String nombre, String id, PropieadEstado tipo) {
 		super(nombre, id, tipo);
 	}
 
