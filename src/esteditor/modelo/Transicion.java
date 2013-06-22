@@ -28,10 +28,10 @@ import mereditor.modelo.validacion.ValidarCardinalidadCompleta;
 public class Transicion extends ComponenteNombre implements ComponenteAtributos, ComponenteTipado<TipoTransicion> {
 
 	public enum TipoTransicion {
-		ASOCIACION, COMPOSICION
+		FUNCIONAL, DE_CONTROL
 	}
 
-	protected TipoTransicion tipo = TipoTransicion.ASOCIACION;
+	protected TipoTransicion tipo = TipoTransicion.DE_CONTROL;
 	protected Set<Atributo> atributos = new HashSet<>();
 	protected Set<EstadoTransicion> participantes = new HashSet<>();
 	public Transicion() {

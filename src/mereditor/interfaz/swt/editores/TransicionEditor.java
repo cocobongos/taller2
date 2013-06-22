@@ -28,7 +28,7 @@ public class TransicionEditor extends Editor<Transicion> {
 	protected EstadoTransicionTabla tblEstados;
 
 	/**
-	 * Utilizado para la creación de una nueva relacion.
+	 * Utilizado para la creaci��n de una nueva relacion.
 	 */
 	public TransicionEditor() {
 		this(new TransicionControl());
@@ -59,7 +59,7 @@ public class TransicionEditor extends Editor<Transicion> {
 		this.txtNombre.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
 		this.cboTipo = createLabelCombo(header, Editor.TIPO);
-		this.cboTipo.setItems(Editor.TiposRelaciones);
+		this.cboTipo.setItems(Editor.TiposTransiciones);
 
 		/**
 		 * Atributos.

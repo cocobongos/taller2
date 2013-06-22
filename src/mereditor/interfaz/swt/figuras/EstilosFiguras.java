@@ -46,8 +46,8 @@ public class EstilosFiguras {
 		estilos.get(Relacion.class).put(TipoRelacion.ASOCIACION, new PList());
 		estilos.get(Relacion.class).put(TipoRelacion.COMPOSICION, new PList());
 
-		estilos.get(Transicion.class).put(TipoTransicion.ASOCIACION, new PList());
-		estilos.get(Transicion.class).put(TipoTransicion.COMPOSICION, new PList());
+		estilos.get(Transicion.class).put(TipoTransicion.DE_CONTROL, new PList());
+		estilos.get(Transicion.class).put(TipoTransicion.FUNCIONAL, new PList());
 
 		estilos.get(Atributo.class).put(TipoAtributo.CARACTERIZACION, new PList());
 		estilos.get(Atributo.class).put(TipoAtributo.DERIVADO_CALCULO, new PList());
@@ -89,11 +89,11 @@ public class EstilosFiguras {
 		rep.set("ColorFondo", crema);
 		rep.set("ColorLinea", negro);
 		
-		rep = estilos.get(Transicion.class).get(TipoTransicion.ASOCIACION);
+		rep = estilos.get(Transicion.class).get(TipoTransicion.DE_CONTROL);
 		rep.set("ColorFondo", crema);
 		rep.set("ColorLinea", negro);
 
-		rep = estilos.get(Transicion.class).get(TipoTransicion.COMPOSICION);
+		rep = estilos.get(Transicion.class).get(TipoTransicion.FUNCIONAL);
 		rep.set("ColorFondo", crema);
 		rep.set("ColorLinea", negro);
 		
