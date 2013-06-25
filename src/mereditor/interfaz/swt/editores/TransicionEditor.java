@@ -3,7 +3,6 @@ package mereditor.interfaz.swt.editores;
 import java.util.List;
 
 import mereditor.control.TransicionControl;
-import mereditor.modelo.Atributo;
 import esteditor.modelo.Transicion;
 import esteditor.modelo.Transicion.EstadoTransicion;
 import esteditor.modelo.Transicion.TipoTransicion;
@@ -23,6 +22,7 @@ import org.eclipse.swt.widgets.Text;
 
 public class TransicionEditor extends Editor<Transicion> {
 	protected Text txtNombre;
+	protected Text txtDescripcion;
 	protected Combo cboTipo;
 	protected AtributosTabla tblAtributos;
 	protected EstadoTransicionTabla tblEstados;
@@ -57,6 +57,9 @@ public class TransicionEditor extends Editor<Transicion> {
 
 		this.txtNombre = createLabelText(header, Editor.NOMBRE);
 		this.txtNombre.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
+
+		this.txtDescripcion = createLabelText(header, Editor.DESCRIPCION);
+		this.txtDescripcion.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
 
 		this.cboTipo = createLabelCombo(header, Editor.TIPO);
 		this.cboTipo.setItems(Editor.TiposTransiciones);
@@ -119,7 +122,7 @@ public class TransicionEditor extends Editor<Transicion> {
 	protected void cargarDatos() {
 		this.txtNombre.setText(this.componente.getNombre());
 		this.cboTipo.setText(this.componente.getTipo().name());
-
+		this.txtDescripcion.setText(this.componente.getDescripcion());
 		//tblAtributos.setElementos(this.componente.getAtributos());
 		tblEstados.setElementos(this.componente.getParticipantes());
 	}
@@ -128,7 +131,7 @@ public class TransicionEditor extends Editor<Transicion> {
 	protected void aplicarCambios() {
 		componente.setNombre(txtNombre.getText());
 		componente.setTipo(TipoTransicion.valueOf(this.cboTipo.getText()));
-
+		componente.setDescripcion(txtDescripcion.getText());
 		//for (Atributo atributo : this.tblAtributos.getElementos())
 		//	componente.addAtributo(atributo);
 		

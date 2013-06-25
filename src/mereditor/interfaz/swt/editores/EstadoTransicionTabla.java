@@ -29,10 +29,8 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 
 	@Override
 	protected void initColumnas() {
-		this.columnas.add(Editor.ENTIDAD);
-		this.columnas.add(Editor.ROL);
-		this.columnas.add(Editor.CARDINALIDAD_MIN);
-		this.columnas.add(Editor.CARDINALIDAD_MAX);
+		this.columnas.add(Editor.ESTADO);
+		this.columnas.add(Editor.ESTADOTIPOTRANSICION);
 	}
 
 	@Override
@@ -41,8 +39,6 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 
 		this.editoresCeldas.add(new ComboBoxCellEditor(table, options
 				.toArray(new String[options.size()]), SWT.READ_ONLY));
-		this.editoresCeldas.add(new TextCellEditor(table));
-		this.editoresCeldas.add(new TextCellEditor(table));
 		this.editoresCeldas.add(new TextCellEditor(table));
 	}
 	
@@ -63,7 +59,7 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 	protected String getTextoColumna(EstadoTransicion element, int columnIndex) {
 		String property = this.columnas.get(columnIndex);
 		switch (property) {
-		case Editor.ENTIDAD:
+		case Editor.ESTADO:
 			return element.getEstado() != null ? element.getEstado()
 					.getNombre() : "";
 		default:
@@ -74,16 +70,12 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 	@Override
 	protected Object getValorCelda(EstadoTransicion element, String property) {
 		switch (property) {
-		case Editor.ENTIDAD:
+		case Editor.ESTADO:
 			String nombre = element.getEstado() != null ? element.getEstado()
 					.getNombre() : null;
 			return nombre != null ? options.indexOf(nombre) : 0;
-		case Editor.ROL:
-			return element.getRol();
-		case Editor.CARDINALIDAD_MIN:
-			return element.getCardinalidadMinima();
-		case Editor.CARDINALIDAD_MAX:
-			return element.getCardinalidadMaxima();
+		case Editor.ESTADOTIPOTRANSICION:
+			return element.getEstadoTipo();
 		default:
 			throw new RuntimeException("Propiedad invalida '" + property
 					+ "' al obtener su valor.");
@@ -94,17 +86,11 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 	protected void setValorCelda(EstadoTransicion element, String property,
 			Object value) {
 		switch (property) {
-		case Editor.ENTIDAD:
+		case Editor.ESTADO:
 			element.setEstado(this.optionsEstado.get((int) value));
 			break;
-		case Editor.ROL:
-			element.setRol(value.toString());
-			break;
-		case Editor.CARDINALIDAD_MIN:
-			element.setCardinalidadMinima(value.toString());
-			break;
-		case Editor.CARDINALIDAD_MAX:
-			element.setCardinalidadMaxima(value.toString());
+		case Editor.ESTADOTIPOTRANSICION:
+			element.setestadoTipo(value.toString());
 			break;
 		default:
 			throw new RuntimeException("Propiedad invalida '" + property

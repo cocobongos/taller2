@@ -32,6 +32,7 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 	}
 
 	protected TipoTransicion tipo = TipoTransicion.DE_CONTROL;
+	protected String descripcion ="";
 	protected Set<Atributo> atributos = new HashSet<>();
 	protected Set<EstadoTransicion> participantes = new HashSet<>();
 	public Transicion() {
@@ -73,6 +74,14 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 	@Override
 	public TipoTransicion getTipo() {
 		return tipo;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	
+	public String getDescripcion() {
+		return descripcion;
 	}
 
 	@Override
@@ -142,11 +151,9 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 	 * Contiene la entidad que pertence a la relacion y su informacion asociada
 	 * a la misma.
 	 */
-	public class EstadoTransicion implements Validable, ComponenteCardinal {
+	public class EstadoTransicion implements Validable {
 		protected Estado estado;
-		protected String rol = "";
-		protected String cardinalidadMinima = "1";
-		protected String cardinalidadMaxima = "1";
+		protected String estadoTipo = "";
 		protected Transicion transicion;
 		
 		/**
@@ -159,13 +166,10 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 			this.addValidaciones();
 		}
 
-		public EstadoTransicion(Transicion transicion, Estado estado, String rol,
-				String cardinalidadMinima, String cardinalidadMaxima) {
+		public EstadoTransicion(Transicion transicion, Estado estado, String estadoTipo) {
 			this(transicion);
 			this.estado = estado;
-			this.rol = rol;
-			this.cardinalidadMinima = cardinalidadMinima;
-			this.cardinalidadMaxima = cardinalidadMaxima;
+			this.estadoTipo = estadoTipo;
 		}
 
 		public Estado getEstado() {
@@ -176,42 +180,21 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 			this.estado = estado;
 		}
 
-		public String getRol() {
-			return rol;
+		public String getEstadoTipo() {
+			return estadoTipo;
 		}
 
-		public void setRol(String rol) {
-			this.rol = rol;
+		public void setestadoTipo(String estadoTipo) {
+			this.estadoTipo = estadoTipo;
 		}
 
-		@Override
-		public String getCardinalidadMinima() {
-			return cardinalidadMinima;
-		}
 
-		@Override
-		public String getCardinalidadMaxima() {
-			return cardinalidadMaxima;
-		}
-
-		@Override
-		public void setCardinalidadMinima(String cardinalidadMinima) {
-			this.cardinalidadMinima = cardinalidadMinima;
-		}
-
-		@Override
-		public void setCardinalidadMaxima(String cardinalidadMaxima) {
-			this.cardinalidadMaxima = cardinalidadMaxima;
-		}
 
 		@Override
 		public String toString() {
 			String label = "";
-			if (!this.cardinalidadMinima.equals("1") || !this.cardinalidadMaxima.equals("1"))
-				label = "(" + this.cardinalidadMinima + ", " + this.cardinalidadMaxima + ")";
-
-			if (this.rol != null)
-				label += " " + this.rol;
+			if (this.estadoTipo != null)
+				label += " " + this.estadoTipo;
 
 			return label;
 		}

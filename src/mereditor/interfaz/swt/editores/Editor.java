@@ -49,7 +49,9 @@ public abstract class Editor<T> extends Dialog {
 	public static final String PROPIEDAD = "Propiedad";
 	public static final String SUBDIAGRAMA = "Subdiagrama";
 	public static final String INTERFAZ = "Interfaz";
-
+	public static final String ESTADO = "Estado";
+	public static final String DESCRIPCION = "Descripcion";
+	public static final String ESTADOTIPOTRANSICION = "Tipo";
 	
 	protected T componente;
 
