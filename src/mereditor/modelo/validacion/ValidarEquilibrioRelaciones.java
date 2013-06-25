@@ -24,14 +24,18 @@ public class ValidarEquilibrioRelaciones implements Validacion {
 		for (Entidad entidad : entidades)
 			total += entidad.getRelaciones().size();
 
-		int promedio = total / entidades.size();
-
-		for (Entidad entidad : entidades) {
-			int delta = promedio - entidad.getRelaciones().size();
-			if (Math.abs(delta) > Validacion.MAX_DESVIACION_RELACIONES) {
-				String msj = "Pertenece a %d relaciones mientras que el promedio es %d.";
-				msj = String.format(msj, entidad.getRelaciones().size(), promedio);
-				observaciones.add(new Observacion(entidad, msj));
+		//puede ser que el diagrama no tenga entidades => es diagrama de estados
+		if( entidades.size() > 0)
+		{
+			int promedio = total / entidades.size();
+	
+			for (Entidad entidad : entidades) {
+				int delta = promedio - entidad.getRelaciones().size();
+				if (Math.abs(delta) > Validacion.MAX_DESVIACION_RELACIONES) {
+					String msj = "Pertenece a %d relaciones mientras que el promedio es %d.";
+					msj = String.format(msj, entidad.getRelaciones().size(), promedio);
+					observaciones.add(new Observacion(entidad, msj));
+				}
 			}
 		}
 

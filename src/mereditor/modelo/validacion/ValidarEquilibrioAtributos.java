@@ -18,6 +18,9 @@ public class ValidarEquilibrioAtributos implements Validacion {
 		// Inlcuir dentro de los componentes sólo a las entidades y las
 		// relaciones.
 		List<ComponenteAtributos> componentes = new ArrayList<>();
+		
+		//FIXME puede que en la cuenta de equilibrio no se tengan que incluir los estados
+		componentes.addAll(proyecto.getEstados());
 		componentes.addAll(proyecto.getEntidades());
 		componentes.addAll(proyecto.getRelaciones());
 

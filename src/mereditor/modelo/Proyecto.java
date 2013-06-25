@@ -270,6 +270,16 @@ public class Proyecto extends ComponenteNombre implements ProyectoProxy {
 		return Componente.filtrarComponentes(Entidad.class,
 				this.componentes.values());
 	}
+	
+	/**
+	 * Obtener el conjunto de estados.
+	 * 
+	 * @return
+	 */
+	public Set<Estado> getEstados() {
+		return Componente.filtrarComponentes(Estado.class,
+				this.componentes.values());
+	}	
 
 	/**
 	 * Obtener el conjunto de relaciones.
