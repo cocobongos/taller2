@@ -16,6 +16,7 @@ import mereditor.modelo.validacion.Observacion;
 import mereditor.modelo.validacion.ValidarAcoplamiento;
 import mereditor.modelo.validacion.ValidarClaridadAtributos;
 import mereditor.modelo.validacion.ValidarClaridadComponentes;
+import mereditor.modelo.validacion.ValidarDiagramaEstados;
 import mereditor.modelo.validacion.ValidarSuperposicion;
 
 public class Diagrama extends ComponenteNombre {
@@ -172,10 +173,13 @@ public class Diagrama extends ComponenteNombre {
 
 	@Override
 	public void addValidaciones() {
-		this.validaciones.add(new ValidarAcoplamiento());
-		this.validaciones.add(new ValidarClaridadComponentes());
-		this.validaciones.add(new ValidarClaridadAtributos());
-		this.validaciones.add(new ValidarSuperposicion());
+		this.validaciones.add(new ValidarDiagramaEstados());
+	
+		//Cocobongos se comentan validaciones que son del tp anterior
+		
+	//	this.validaciones.add(new ValidarClaridadComponentes());
+	//	this.validaciones.add(new ValidarClaridadAtributos());
+	//	this.validaciones.add(new ValidarSuperposicion());
 	}
 
 	@Override

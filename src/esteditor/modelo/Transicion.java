@@ -205,7 +205,7 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 		
 		@Override
 		public void addValidaciones() {
-			this.validaciones.add(new ValidarCardinalidadCompleta());
+			//this.validaciones.add(new ValidarCardinalidadCompleta());
 		}
 
 		@Override
