@@ -3,20 +3,22 @@ package mereditor.interfaz.swt.editores;
 import java.util.List;
 
 import mereditor.control.EstadoControl;
-import esteditor.modelo.Estado;
-import esteditor.modelo.Estado.PropieadEstado;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.RowLayout;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.ToolBar;
+import org.eclipse.swt.widgets.ToolItem;
+
+import esteditor.modelo.Estado;
+import esteditor.modelo.Estado.PropieadEstado;
 
 public class EstadoEditor extends Editor<Estado> {
 	protected Text txtNombre;
@@ -64,15 +66,26 @@ public class EstadoEditor extends Editor<Estado> {
 		this.cboTipo.setItems(Editor.PropiedadEstados);
 
 		
-		Composite botonesIdentificadores = new Composite(dialogArea, SWT.NONE);
-		botonesIdentificadores.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
-		botonesIdentificadores.setLayout(new RowLayout(SWT.VERTICAL));
+		Composite botonesTipo = new Composite(dialogArea, SWT.NONE);
+		//botonesIdentificadores.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
+		//botonesIdentificadores.setLayout(new RowLayout(SWT.VERTICAL));
+
+		ToolBar bar = new ToolBar(botonesTipo, SWT.BORDER|SWT.HORIZONTAL);
+	    ToolItem pushInterfaz = new ToolItem(bar, SWT.RADIO);
+	    ToolItem pushSubdiagrama = new ToolItem(bar, SWT.RADIO);
+	    pushInterfaz.setText("Interfaz");
+	    pushSubdiagrama.setText("Subdiagrama");
+	    bar.pack();
 		
-		Button btnNuevoAtributo = new Button(botonesIdentificadores, SWT.PUSH);
+		
+		/*
+		 * 		Button btnNuevoAtributo = new Button(botonesIdentificadores, SWT.PUSH);
 		btnNuevoAtributo.setText(Editor.INTERFAZ);
 
 		Button btnEliminarAtributo = new Button(botonesIdentificadores, SWT.PUSH);
 		btnEliminarAtributo.setText(Editor.SUBDIAGRAMA);
+		 */
+
 
 		/*
 		 * ExpandBar expandBar = new ExpandBar(botones, SWT.NONE);
