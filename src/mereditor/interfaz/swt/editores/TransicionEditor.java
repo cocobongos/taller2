@@ -1,10 +1,16 @@
 package mereditor.interfaz.swt.editores;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 
 import mereditor.control.TransicionControl;
+import mereditor.interfaz.swt.Principal;
+import esteditor.modelo.Estado;
 import esteditor.modelo.Transicion;
 import esteditor.modelo.Transicion.EstadoTransicion;
+import esteditor.modelo.Transicion.TipoEstadoTransicion;
 import esteditor.modelo.Transicion.TipoTransicion;
 
 
@@ -24,8 +30,16 @@ public class TransicionEditor extends Editor<Transicion> {
 	protected Text txtNombre;
 	protected Text txtDescripcion;
 	protected Combo cboTipo;
+	protected Combo estadoOrigen;
+	protected Combo estadoDestino;
+	protected EstadoTransicion estadoTransicionOrigen;
+	protected EstadoTransicion estadoTransicionDestino;
 	protected AtributosTabla tblAtributos;
+	
 	protected EstadoTransicionTabla tblEstados;
+	
+	protected ArrayList<String> options;
+	protected ArrayList<Estado> optionsEstado;
 
 	/**
 	 * Utilizado para la creaci��n de una nueva relacion.
@@ -43,7 +57,6 @@ public class TransicionEditor extends Editor<Transicion> {
 	protected Point getInitialSize() {
 		return new Point(400, 500);
 	}
-
 	@Override
 	protected Control createDialogArea(final Composite parent) {
 		Composite dialogArea = (Composite) super.createDialogArea(parent);
@@ -63,57 +76,19 @@ public class TransicionEditor extends Editor<Transicion> {
 
 		this.cboTipo = createLabelCombo(header, Editor.TIPO);
 		this.cboTipo.setItems(Editor.TiposTransiciones);
+		
 
-		/**
-		 * Atributos.
-		 
-		Group grupoAtributos = new Group(dialogArea, SWT.NONE);
-		grupoAtributos.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		grupoAtributos.setText("Atributos");
-		grupoAtributos.setLayout(new GridLayout(1, true));
+		this.cargarEstados();
 		
-		Composite botonesAttrs = new Composite(grupoAtributos, SWT.NONE);
-		botonesAttrs.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
-		botonesAttrs.setLayout(new RowLayout(SWT.HORIZONTAL));
-
-		Button btnNuevoAtributo = new Button(botonesAttrs, SWT.PUSH);
-		btnNuevoAtributo.setText("Nuevo");
+		this.estadoOrigen =createLabelCombo(header,"Origen");
+		this.estadoOrigen.setItems(options
+				.toArray(new String[options.size()]));
 		
-		Button btnEliminarAtributo = new Button(botonesAttrs, SWT.PUSH);
-		btnEliminarAtributo.setText(Editor.ELIMINAR);
-
-		// TableViewer
-		this.tblAtributos = new AtributosTabla(grupoAtributos);
-
-		// Agregar un nuevo atributo cuando se hace click sobre el boton
-		btnNuevoAtributo.addSelectionListener(this.tblAtributos.nuevo);
-		// Eliminar atributo
-		btnEliminarAtributo.addSelectionListener(this.tblAtributos.eliminar);
-*/
-		/**
-		 * Entidades.
-		 */
-		Group grupoEntidades = new Group(dialogArea, SWT.NONE);
-		grupoEntidades.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		grupoEntidades.setText("Estados");
-		grupoEntidades.setLayout(new GridLayout(1, true));
-		
-		Composite botonesEntidades = new Composite(grupoEntidades, SWT.NONE);
-		botonesEntidades.setLayoutData(new GridData(SWT.LEFT, SWT.LEFT, false, false, 1, 1));
-		botonesEntidades.setLayout(new RowLayout(SWT.HORIZONTAL));
-		
-		Button btnNuevaEntidadRelacion = new Button(botonesEntidades, SWT.PUSH);
-		btnNuevaEntidadRelacion.setText(Editor.NUEVO);
-		
-		Button btnEliminarEntidadRelacion = new Button(botonesEntidades, SWT.PUSH);
-		btnEliminarEntidadRelacion.setText(Editor.ELIMINAR);
-
-		this.tblEstados = new EstadoTransicionTabla(grupoEntidades, this.componente);
-		
-		// Agregar un nuevo atributo cuando se hace click sobre el boton
-		btnNuevaEntidadRelacion.addSelectionListener(this.tblEstados.nuevo);
-		// Eliminar atributo
-		btnEliminarEntidadRelacion.addSelectionListener(this.tblEstados.eliminar);
+		this.estadoDestino =createLabelCombo(header,"Destino");
+		this.estadoDestino.setItems(options
+				.toArray(new String[options.size()]));
+		this.estadoTransicionDestino= this.componente.new EstadoTransicion(this.componente);
+		this.estadoTransicionOrigen= this.componente.new EstadoTransicion(this.componente);
 
 		return dialogArea;
 	}
@@ -123,8 +98,34 @@ public class TransicionEditor extends Editor<Transicion> {
 		this.txtNombre.setText(this.componente.getNombre());
 		this.cboTipo.setText(this.componente.getTipo().name());
 		this.txtDescripcion.setText(this.componente.getDescripcion());
-		//tblAtributos.setElementos(this.componente.getAtributos());
-		tblEstados.setElementos(this.componente.getParticipantes());
+		
+		Set<EstadoTransicion> participantes;
+		participantes=this.componente.getParticipantes();
+		
+		for(EstadoTransicion estado : participantes) 
+	    {
+			if (estado.getEstadoTipo()==TipoEstadoTransicion.DESTINO)
+				this.estadoDestino.setText(estado.getEstado().getNombre());
+			if (estado.getEstadoTipo()==TipoEstadoTransicion.ORIGEN)
+				this.estadoOrigen.setText(estado.getEstado().getNombre());
+				
+	    }
+
+	}
+	
+	public void cargarEstados()
+	{
+		Set<Estado> estados = Principal.getInstance().getProyecto()
+				.getEstadosDiagrama();
+		
+		this.optionsEstado = new ArrayList<>(estados);
+		Collections.sort(this.optionsEstado);		
+		this.options = new ArrayList<String>();		
+
+		for (Estado estado : this.optionsEstado) {
+			this.options.add(estado.getNombre());
+		}	
+	
 	}
 
 	@Override
@@ -132,24 +133,35 @@ public class TransicionEditor extends Editor<Transicion> {
 		componente.setNombre(txtNombre.getText());
 		componente.setTipo(TipoTransicion.valueOf(this.cboTipo.getText()));
 		componente.setDescripcion(txtDescripcion.getText());
-		//for (Atributo atributo : this.tblAtributos.getElementos())
-		//	componente.addAtributo(atributo);
+	
+		int value=	this.options.indexOf(estadoOrigen.getText());
 		
-	//	for (Atributo atributo : this.tblAtributos.getElementosEliminados())
-	//		componente.removeAtributo(atributo);
+		this.estadoTransicionOrigen.setEstado(this.optionsEstado.get((int)value));
+		this.estadoTransicionOrigen.setEstadoTipo(TipoEstadoTransicion.ORIGEN);
+		componente.addParticipante(this.estadoTransicionOrigen);
 		
-		for (EstadoTransicion entidadRelacion : this.tblEstados.getElementos())
-			componente.addParticipante(entidadRelacion);
+		value=this.options.indexOf(estadoDestino.getText());
+		this.estadoTransicionDestino.setEstado(this.optionsEstado.get((int)value));
+		this.estadoTransicionDestino.setEstadoTipo(TipoEstadoTransicion.DESTINO);
+		componente.addParticipante(this.estadoTransicionDestino);
 		
-		for (EstadoTransicion entidadRelacion : this.tblEstados.getElementosEliminados())
-			componente.removeParticipante(entidadRelacion);
 	}
 
 	@Override
 	protected boolean validar(List<String> errors) {
 		if (txtNombre.getText().trim().length() == 0)
 			errors.add("Debe completar el nombre.");
-
+		
+		if (estadoOrigen.getText().trim().length() == 0)
+			errors.add("Debe seleccionar un estado origen.");
+		
+		if (estadoDestino.getText().trim().length() == 0)
+			errors.add("Debe seleccionar un estado destino.");
+		
+		if (estadoOrigen.getText() == estadoDestino.getText())
+			errors.add("El estado origen y destino no pueden ser iguales.");
+		
+		
 		return errors.isEmpty();
 	}
 }

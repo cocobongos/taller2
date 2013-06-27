@@ -151,9 +151,14 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 	 * Contiene la entidad que pertence a la relacion y su informacion asociada
 	 * a la misma.
 	 */
+	public enum TipoEstadoTransicion {
+		ORIGEN, DESTINO
+	}
 	public class EstadoTransicion implements Validable {
-		protected Estado estado;
-		protected String estadoTipo = "";
+		
+
+		protected Estado estado=null;
+		protected TipoEstadoTransicion estadoTipo;
 		protected Transicion transicion;
 		
 		/**
@@ -166,7 +171,7 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 			this.addValidaciones();
 		}
 
-		public EstadoTransicion(Transicion transicion, Estado estado, String estadoTipo) {
+		public EstadoTransicion(Transicion transicion, Estado estado, TipoEstadoTransicion estadoTipo) {
 			this(transicion);
 			this.estado = estado;
 			this.estadoTipo = estadoTipo;
@@ -180,11 +185,11 @@ public class Transicion extends ComponenteNombre implements ComponenteAtributos,
 			this.estado = estado;
 		}
 
-		public String getEstadoTipo() {
+		public TipoEstadoTransicion getEstadoTipo() {
 			return estadoTipo;
 		}
 
-		public void setestadoTipo(String estadoTipo) {
+		public void setEstadoTipo(TipoEstadoTransicion estadoTipo) {
 			this.estadoTipo = estadoTipo;
 		}
 

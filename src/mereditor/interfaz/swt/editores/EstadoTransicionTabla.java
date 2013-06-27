@@ -90,7 +90,7 @@ public class EstadoTransicionTabla extends Tabla<EstadoTransicion> {
 			element.setEstado(this.optionsEstado.get((int) value));
 			break;
 		case Editor.ESTADOTIPOTRANSICION:
-			element.setestadoTipo(value.toString());
+			//element.setEstadoTipo(value.toString());
 			break;
 		default:
 			throw new RuntimeException("Propiedad invalida '" + property
